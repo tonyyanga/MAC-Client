@@ -5,9 +5,13 @@ Public Class main
     Public Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
     Public Declare Function TCPSend Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, Contents As String) As Boolean
     Public Declare Function TCPListen Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket) As String
-    Public CurrentSocket As System.Net.Sockets.Socket
+    Friend Property CurrentSocket As System.Net.Sockets.Socket
+    Friend Property LoginCode As String = ""
+    Friend Property User As String = ""
+    Friend Property Passwd As String = ""
+    Friend Property Server As String = ""
 
-    Private Sub Ribbon_Connect_Init()
+    Friend Sub Ribbon_Connect_Init()
         'Initialize Ribbon.Connect
         BarList_Connect.Strings.Clear()
         BarList_Conn_ManageProfiles.Strings.Clear()
@@ -36,7 +40,6 @@ Public Class main
         GroupControl2.Visible = False
         GroupControlMain.Visible = False
     End Sub
-
     Private Sub main_Load(sender As Object, e As EventArgs) Handles Me.Load
         'Initialization
         Call Init()
@@ -74,6 +77,7 @@ Public Class main
         Label4 = New System.Windows.Forms.Label()
         Dim Textbox1 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
         Dim Textbox2 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
+        Dim CEdit As Conn_Edit = New Conn_Edit
         'GroupControlMain
         GroupControlMain.Visible = True
         GroupControlMain.Controls.Add(Button2)
@@ -94,14 +98,14 @@ Public Class main
         Button1.TabIndex = 7
         Button1.Text = "保存连接"
         Button1.UseVisualStyleBackColor = True
-        AddHandler Button1.Click, AddressOf Conn_Edit_Save_Click
+        AddHandler Button1.Click, AddressOf CEdit.Conn_Edit_Save_Click
         'Button2
         Button2.Location = New System.Drawing.Point(188, 189)
         Button2.Size = New System.Drawing.Size(75, 23)
         Button2.TabIndex = 8
         Button2.Text = "放弃"
         Button2.UseVisualStyleBackColor = True
-        AddHandler Button2.Click, AddressOf Conn_Edit_Cancel_Click
+        AddHandler Button2.Click, AddressOf CEdit.Conn_Edit_Cancel_Click
         'Label2
         Label2.AutoSize = True
         Label2.Location = New System.Drawing.Point(127, 73)
@@ -133,6 +137,9 @@ Public Class main
         Textbox1.Name = "Textbox1"
         Textbox1.Text = ""
         Textbox1.Focus()
+        'Class CEdit
+        CEdit.GroupControl = GroupControlMain
+        CEdit.Form = Me
     End Sub
 
     Private Sub Login_Show(Server As String, Optional User As String = "", Optional Note As String = "无", Optional Password As String = "")
@@ -149,6 +156,7 @@ Public Class main
         Label3 = New System.Windows.Forms.Label()
         Label4 = New System.Windows.Forms.Label()
         Dim Textbox1 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
+        Dim CLogin As Login = New Login
         'GroupControlMain
         GroupControlMain.Visible = True
         GroupControlMain.Controls.Add(Button2)
@@ -168,14 +176,14 @@ Public Class main
         Button1.TabIndex = 0
         Button1.Text = "登录"
         Button1.UseVisualStyleBackColor = True
-        AddHandler Button1.Click, AddressOf Conn_Connect_Click
+        AddHandler Button1.Click, AddressOf CLogin.Conn_Login_Click
         'Button2
         Button2.Location = New System.Drawing.Point(188, 189)
         Button2.Size = New System.Drawing.Size(75, 23)
         Button2.TabIndex = 6
         Button2.Text = "断开连接"
         Button2.UseVisualStyleBackColor = True
-        AddHandler Button2.Click, AddressOf Conn_Cancel_Click
+        AddHandler Button2.Click, AddressOf CLogin.Conn_Cancel_Click
         'Label1
         Label1.AutoSize = True
         Label1.Location = New System.Drawing.Point(127, 46)
@@ -206,6 +214,11 @@ Public Class main
         Textbox1.TabIndex = 5
         Textbox1.Text = Password
         Textbox1.UseSystemPasswordChar = True
+        'CLogin
+        CLogin.Form = Me
+        CLogin.GroupControl = GroupControlMain
+        CLogin.user = User
+        CLogin.password = Textbox1
     End Sub
     Private Sub Connect(ConnectIP As String, User As String)
         'Start Socket ,get auth note and show login form
@@ -216,57 +229,21 @@ Public Class main
             MsgBox("连接失败!" & Chr(10) & ConnectIP & ":8010", vbOKOnly, "MAC Client")
         Else
             CurrentSocket = socket
+
             If TCPSend(CurrentSocket, "Get Auth Note") Then
                 Login_Show(ConnectIP, User, TCPListen(CurrentSocket))
             Else
                 Login_Show(ConnectIP, User)
             End If
             BarStaticItem_Status.Caption = "已连接到" & ConnectIP
+            Server = ConnectIP
         End If
+        socket.Disconnect(False)
     End Sub
 
-    Private Sub Conn_Connect_Click()
+    Friend Sub connected()
 
     End Sub
-
-    Private Sub Conn_Cancel_Click()
-        'Handle Connect.Cancel.Click
-        CurrentSocket.Close()
-        CurrentSocket = Nothing
-        Call Clean_GroupMain()
-    End Sub
-
-    Private Sub Conn_Edit_Save_Click()
-        Dim ip As System.Windows.Forms.TextBox, user As System.Windows.Forms.TextBox
-        ip = Nothing
-        user = Nothing
-        For Each obj As System.Windows.Forms.Control In GroupControlMain.Controls
-            If obj.Name = "Textbox1" Then ip = DirectCast(obj, System.Windows.Forms.TextBox)
-            If obj.Name = "Textbox2" Then user = DirectCast(obj, System.Windows.Forms.TextBox)
-        Next
-        Try
-            If Not (Directory.Exists(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client")) Then Directory.CreateDirectory(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client")
-            If Not (main_module1.WriteProfile(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt",
-                                   Trim(ip.Text) & " " & Trim(user.Text))) Then MsgBox("保存失败", vbOKOnly, "MAC Client")
-
-        Catch ex As Exception
-            MsgBox("保存失败, " & ex.Message, vbOKOnly, "MAC Client")
-        End Try
-        Call Clean_GroupMain()
-        Call Ribbon_Connect_Init()
-    End Sub
-
-    Private Sub Conn_Edit_Cancel_Click()
-        'Handle EditConnection.Cancel.Click
-        Call Clean_GroupMain()
-    End Sub
-    Private Sub Clean_GroupMain()
-        'Clean GroupMain and hide it.
-        Dim obj As System.Windows.Forms.Control
-        For Each obj In GroupControlMain.Controls
-            GroupControlMain.Controls.Remove(obj)
-            obj = Nothing
-        Next
-        GroupControlMain.Visible = False
-    End Sub
+    
+    
 End Class

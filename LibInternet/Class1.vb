@@ -23,7 +23,6 @@ Public Class Class1
             Connection.Send(msg)
         Catch ex As Exception
             TCPSend = False
-            Exit Function
         End Try
         TCPSend = True
     End Function
@@ -34,7 +33,11 @@ Public Class Class1
         Dim result As String = ""
         Dim bytesRec As Integer
         While True
-            bytesRec = Connection.Receive(bytes)
+            Try
+                bytesRec = Connection.Receive(bytes)
+            Catch ex As Exception
+                TCPListen = "ERROR"
+            End Try
             data = System.Text.Encoding.UTF8.GetString(bytes, 0, bytesRec)
             data = Trim(data)
             If data = "###" Then
@@ -47,4 +50,17 @@ Public Class Class1
         TCPListen = result
     End Function
 
+    Public Function Login(CurrentSocket As Socket, Username As String, Passwd As String) As String
+        Dim listen As String
+        CurrentSocket.Listen(1)
+        If Not (TCPSend(CurrentSocket, "LOGIN " & Username & "@" & Passwd)) Then Login = False
+        listen = TCPListen(CurrentSocket)
+        If Left(listen, 9) = "AUTH PASS" Then
+            Login = Right(listen, Microsoft.VisualBasic.Len(listen) - 9)
+        ElseIf listen = "AUTH FAIL" Then
+            Login = "FAIL"
+        Else
+            Login = ""
+        End If
+    End Function
 End Class

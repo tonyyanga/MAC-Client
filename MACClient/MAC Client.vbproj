@@ -79,6 +79,9 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CGroupControl.vb" />
+    <Compile Include="Conn_Edit.vb" />
+    <Compile Include="Login.vb" />
     <Compile Include="main.Designer.vb">
       <DependentUpon>main.vb</DependentUpon>
     </Compile>
