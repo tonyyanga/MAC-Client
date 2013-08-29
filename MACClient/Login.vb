@@ -20,6 +20,7 @@
             Clean_GroupControl(GroupControl)
             Form.connected()
         End If
+	Form.CurrentSocket.Disconnect()
     End Sub
 
     Friend Sub Conn_Cancel_Click()
