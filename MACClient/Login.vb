@@ -2,7 +2,7 @@
     Inherits CGroupControl
     Friend Property user As String
     Friend Property password As System.Windows.Forms.TextBox
-    Public Declare Function UserLogin Lib "LibInternet.dll" Alias "Login" (CurrentSocket As System.Net.Sockets.Socket, Username As String, Passwd As String) As String
+    Private Declare Function UserLogin Lib "LibInternet.dll" Alias "Login" (CurrentSocket As System.Net.Sockets.Socket, Username As String, Passwd As String) As String
     Friend Sub Conn_Login_Click()
         Dim logincode As String
         Form.BarStaticItem_Status.Caption = "正连接到" & Form.Server
@@ -14,13 +14,13 @@
             MsgBox("登录失败" & Chr(10) & "未知错误", vbExclamation, "MAC Client")
             Form.Server = ""
         Else
+            Form.BarStaticItem_Status.Caption = "已连接到" & Form.Server
             Form.LoginCode = logincode
             Form.User = user
             Form.Passwd = Trim(password.Text)
             Clean_GroupControl(GroupControl)
             Form.connected()
         End If
-	Form.CurrentSocket.Disconnect()
     End Sub
 
     Friend Sub Conn_Cancel_Click()

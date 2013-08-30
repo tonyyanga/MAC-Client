@@ -2,9 +2,14 @@
 Imports System.Collections
 
 Public Class main
-    Public Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
-    Public Declare Function TCPSend Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, Contents As String) As Boolean
-    Public Declare Function TCPListen Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket) As String
+    Private Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
+    Private Declare Function TCPSend Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, Contents As String) As Boolean
+    Private Declare Function TCPListen Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket) As String
+    Private Declare Function GetStatus Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    Private Declare Function GetStarFeature Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    Private Declare Function GetLevelUp Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    Private Declare Function GetDomainControl Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    Private Declare Function GetFileEncrypt Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
     Friend Property CurrentSocket As System.Net.Sockets.Socket
     Friend Property LoginCode As String = ""
     Friend Property User As String = ""
@@ -238,10 +243,76 @@ Public Class main
             BarStaticItem_Status.Caption = "已连接到" & ConnectIP
             Server = ConnectIP
         End If
-        socket.Disconnect(False)
     End Sub
 
     Friend Sub connected()
+        Dim obj As System.Windows.Forms.Control
+        For Each obj In Me.Controls
+            obj.Enabled = True
+        Next
+        BarList_Connect.Enabled = False
+        BarStaticItem_Status.Caption = "获取远程服务状态"
+        Select Case GetStatus(CurrentSocket, LoginCode)
+            Case 0
+                MsgBox("获取远程服务状态失败！" & Chr(10) & "连接将中断！", vbExclamation, "MAC Client")
+                TCPSend(CurrentSocket, "DISCONNECT")
+                CurrentSocket = Nothing
+                Init()
+            Case 1
+                BarButton_Service_Start.Enabled = False
+                BarStaticItem_Status.Caption = "已连接到" & Server & "  服务正在运行"
+            Case 2
+                BarButton_Service_Pause.Enabled = False
+                BarStaticItem_Status.Caption = "已连接到" & Server & "  服务暂停"
+            Case 3
+                BarButton_Service_Disable.Enabled = False
+                BarButton_Service_Pause.Enabled = False
+                BarStaticItem_Status.Caption = "已连接到" & Server & "  服务停止"
+        End Select
+        Select Case GetStarFeature(CurrentSocket, LoginCode)
+            Case 0
+                MsgBox("获取*特性状态失败！", vbExclamation, "MAC Client")
+                BarButton_BLP_ObjPromotion.Enabled = False
+            Case 1
+                BarButton_BLP_ObjPromotion.Caption = "禁用*特性"
+            Case 2
+                BarButton_BLP_ObjPromotion.Caption = "启用*特性"
+            Case 3
+                BarButton_BLP_ObjPromotion.Enabled = False
+        End Select
+        Select Case GetLevelUp(CurrentSocket, LoginCode)
+            Case 0
+                MsgBox("获取程序等级提升状态失败！", vbExclamation, "MAC Client")
+                BarButton_BLP_SbjPromotion.Enabled = False
+            Case 1
+                BarButton_BLP_SbjPromotion.Caption = "禁用程序等级提升"
+            Case 2
+                BarButton_BLP_SbjPromotion.Caption = "启用程序等级提升"
+            Case 3
+                BarButton_BLP_SbjPromotion.Enabled = False
+        End Select
+        Select Case GetFileEncrypt(CurrentSocket, LoginCode)
+            Case 0
+                MsgBox("获取文件加密状态失败！", vbExclamation, "MAC Client")
+                BarButton_Encrypt_Enable.Enabled = False
+            Case 1
+                BarButton_Encrypt_Enable.Caption = "禁用文件加密"
+            Case 2
+                BarButton_Encrypt_Enable.Caption = "启用文件加密"
+            Case 3
+                BarButton_Encrypt_Enable.Enabled = False
+        End Select
+        Select Case GetLevelUp(CurrentSocket, LoginCode)
+            Case 0
+                MsgBox("获取计算机组策略状态失败！", vbExclamation, "MAC Client")
+                BarButton_Domain_Enable.Enabled = False
+            Case 1
+                BarButton_Domain_Enable.Caption = "禁用计算机组"
+            Case 2
+                BarButton_Domain_Enable.Caption = "启用计算机组"
+            Case 3
+                BarButton_Domain_Enable.Enabled = False
+        End Select
 
     End Sub
     
