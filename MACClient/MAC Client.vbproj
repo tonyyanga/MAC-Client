@@ -79,8 +79,10 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Affairs.vb" />
     <Compile Include="CGroupControl.vb" />
     <Compile Include="Conn_Edit.vb" />
+    <Compile Include="GetSysStatus.vb" />
     <Compile Include="Login.vb" />
     <Compile Include="main.Designer.vb">
       <DependentUpon>main.vb</DependentUpon>
@@ -91,8 +93,10 @@
     <Compile Include="main_module1.vb" />
     <Compile Include="Program.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Uptime.vb" />
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">

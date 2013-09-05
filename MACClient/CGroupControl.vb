@@ -1,4 +1,4 @@
-﻿Public Class CGroupControl
+﻿Public MustInherit Class CGroupControl
     Friend Property GroupControl As DevExpress.XtraEditors.GroupControl
     Friend Property Form As main
     Friend Sub Clean_GroupControl(GroupControl As DevExpress.XtraEditors.GroupControl)

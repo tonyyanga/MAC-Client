@@ -4,14 +4,14 @@ Imports System.Net.Sockets
 
 
 Public Module Module1
-    Public Function StartTCPConnection(Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As Socket
+    Public Function StartTCPConnection(Domain As String, Port As UInteger) As Socket
         Try
             Dim Socket As New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
             Domain = Trim(Domain)
             Dim EndPoint As New DnsEndPoint(Domain, Port)
             Socket.Bind(EndPoint)
             Socket.Connect(EndPoint)
-            Socket.Listen(MaxNumber)
+            'Socket.Listen(MaxNumber)
             StartTCPConnection = Socket
         Catch
             StartTCPConnection = Nothing
@@ -49,6 +49,7 @@ Public Module Module1
                 result = result & data
                 data = ""
             End If
+            Thread.Yield()
         End While
         TCPListen = result
     End Function

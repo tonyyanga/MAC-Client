@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports System.Collections
+Imports System.Threading
 
 Public Class main
     Private Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
@@ -11,10 +12,14 @@ Public Class main
     Private Declare Function GetDomainControl Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
     Private Declare Function GetFileEncrypt Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
     Friend Property CurrentSocket As System.Net.Sockets.Socket
+    Friend Property CurrentSocket2 As System.Net.Sockets.Socket
+    Friend Property CurrentSocket3 As System.Net.Sockets.Socket
     Friend Property LoginCode As String = ""
     Friend Property User As String = ""
     Friend Property Passwd As String = ""
     Friend Property Server As String = ""
+    Private Property GetAffairs As Thread
+    Private Property GetSysStatus As Thread
 
     Friend Sub Ribbon_Connect_Init()
         'Initialize Ribbon.Connect
@@ -51,6 +56,12 @@ Public Class main
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        Static count As Integer
+        count += 1
+        If count = 100 Then
+            count = 0
+        End If
+
         'Sync Time
         BarStaticItem_Time.Caption = CStr(Today) & " " & CStr(TimeOfDay)
     End Sub
@@ -234,7 +245,7 @@ Public Class main
             MsgBox("连接失败!" & Chr(10) & ConnectIP & ":8010", vbOKOnly, "MAC Client")
         Else
             CurrentSocket = socket
-
+            socket.Listen(1)
             If TCPSend(CurrentSocket, "Get Auth Note") Then
                 Login_Show(ConnectIP, User, TCPListen(CurrentSocket))
             Else
@@ -250,6 +261,7 @@ Public Class main
         For Each obj In Me.Controls
             obj.Enabled = True
         Next
+        'Form
         BarList_Connect.Enabled = False
         BarStaticItem_Status.Caption = "获取远程服务状态"
         Select Case GetStatus(CurrentSocket, LoginCode)
@@ -313,8 +325,23 @@ Public Class main
             Case 3
                 BarButton_Domain_Enable.Enabled = False
         End Select
+        GroupControlMain.Visible = False
 
+        'Affairs
+        Dim CAffairs As Affairs = New Affairs
+        GetAffairs = New Thread(AddressOf CAffairs.GetAffairs)
+        CAffairs.Form = Me
+        CAffairs.ListView = ListView4
+        GetAffairs.Start()
+        CurrentSocket2 = StartTCPConnection(Server, 8010)
+        'Status
+        Dim CStatus As GetSysStatus = New GetSysStatus
+        GetSysStatus = New Thread(AddressOf CStatus.GetStatus)
+        CStatus.Form = Me
+        CStatus.ListView = ListView4
+        GetSysStatus.Start()
+        CurrentSocket3 = StartTCPConnection(Server, 8010)
     End Sub
-    
-    
+
+
 End Class
