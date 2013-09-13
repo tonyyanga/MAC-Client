@@ -1,5 +1,8 @@
 ﻿Public Class GetSysStatus
     Inherits Uptime
+    Friend Property ListView_IO As System.Windows.Forms.ListView
+    Friend Property ListView_Process As System.Windows.Forms.ListView
+    Friend Property ListView_Services As System.Windows.Forms.ListView
     Friend Sub GetStatus()
         Dim listen As String = ""
         If Not (TCPSend(Form.CurrentSocket2, "GET SYSSTATUS")) Then Exit Sub

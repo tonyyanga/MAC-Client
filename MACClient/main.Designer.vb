@@ -1037,7 +1037,7 @@ Partial Class main
         Me.XtraTabPage1.Controls.Add(Me.ListView1)
         Me.XtraTabPage1.Name = "XtraTabPage1"
         Me.XtraTabPage1.Size = New System.Drawing.Size(391, 172)
-        Me.XtraTabPage1.Text = "应用程序"
+        Me.XtraTabPage1.Text = "文件读写"
         '
         'ListView1
         '

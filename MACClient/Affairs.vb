@@ -1,5 +1,6 @@
 ﻿Public Class Affairs
     Inherits Uptime
+    Friend Property ListView As System.Windows.Forms.ListView
     Friend Sub GetAffairs()
         Dim listen As String = ""
         If Not (TCPSend(Form.CurrentSocket3, "GET AFFAIRS")) Then Exit Sub

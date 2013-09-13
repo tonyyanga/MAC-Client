@@ -1,16 +1,17 @@
 ﻿Imports System.IO
 Imports System.Collections
 Imports System.Threading
+Imports LibInternet.Internet
 
 Public Class main
-    Private Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
-    Private Declare Function TCPSend Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, Contents As String) As Boolean
-    Private Declare Function TCPListen Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket) As String
-    Private Declare Function GetStatus Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
-    Private Declare Function GetStarFeature Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
-    Private Declare Function GetLevelUp Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
-    Private Declare Function GetDomainControl Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
-    Private Declare Function GetFileEncrypt Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    'Private Declare Function StartTCPConnection Lib "LibInternet.dll" (Domain As String, Port As UInteger, Optional MaxNumber As Integer = 1) As System.Net.Sockets.Socket
+    'Private Declare Function TCPSend Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, Contents As String) As Boolean
+    'Private Declare Function TCPListen Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket) As String
+    'Private Declare Function GetStatus Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    'Private Declare Function GetStarFeature Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    'Private Declare Function GetLevelUp Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    'Private Declare Function GetDomainControl Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
+    'Private Declare Function GetFileEncrypt Lib "LibInternet.dll" (Connection As System.Net.Sockets.Socket, LoginCode As String) As Byte
     Friend Property CurrentSocket As System.Net.Sockets.Socket
     Friend Property CurrentSocket2 As System.Net.Sockets.Socket
     Friend Property CurrentSocket3 As System.Net.Sockets.Socket
@@ -39,6 +40,7 @@ Public Class main
         End If
         BarList_Connect.Strings.Add("新连接")
         BarList_Conn_ManageProfiles.Strings.Add("管理面板")
+
     End Sub
     Private Sub Init()
         'Initialize Ribbon
@@ -338,7 +340,9 @@ Public Class main
         Dim CStatus As GetSysStatus = New GetSysStatus
         GetSysStatus = New Thread(AddressOf CStatus.GetStatus)
         CStatus.Form = Me
-        CStatus.ListView = ListView4
+        CStatus.ListView_IO = ListView1
+        CStatus.ListView_Process = ListView2
+        CStatus.ListView_Services = ListView3
         GetSysStatus.Start()
         CurrentSocket3 = StartTCPConnection(Server, 8010)
     End Sub
