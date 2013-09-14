@@ -7,6 +7,8 @@
         While True
             While listen = ""
                 listen = TCPListen(Form.CurrentSocket3)
+                If listen = "ERROR" Then Form.Disconnect()
+
             End While
             Convert(listen)
             Threading.Thread.Sleep(10000)

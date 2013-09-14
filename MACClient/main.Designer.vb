@@ -139,6 +139,14 @@ Partial Class main
         Me.ListView4 = New System.Windows.Forms.ListView()
         Me.GroupControlMain = New DevExpress.XtraEditors.GroupControl()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.LabelInfo = New System.Windows.Forms.Label()
+        Me.TextBoxInfo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,6 +162,7 @@ Partial Class main
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControlMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'RibbonControl
@@ -1114,15 +1123,95 @@ Partial Class main
         '
         'GroupControlMain
         '
-        Me.GroupControlMain.Location = New System.Drawing.Point(282, 153)
+        Me.GroupControlMain.Controls.Add(Me.Button4)
+        Me.GroupControlMain.Controls.Add(Me.Button3)
+        Me.GroupControlMain.Controls.Add(Me.Button2)
+        Me.GroupControlMain.Controls.Add(Me.Button1)
+        Me.GroupControlMain.Controls.Add(Me.TextBox1)
+        Me.GroupControlMain.Controls.Add(Me.Label1)
+        Me.GroupControlMain.Controls.Add(Me.TextBoxInfo)
+        Me.GroupControlMain.Controls.Add(Me.LabelInfo)
+        Me.GroupControlMain.Location = New System.Drawing.Point(91, 153)
         Me.GroupControlMain.Name = "GroupControlMain"
-        Me.GroupControlMain.Size = New System.Drawing.Size(436, 234)
+        Me.GroupControlMain.Size = New System.Drawing.Size(741, 234)
         Me.GroupControlMain.TabIndex = 5
-        Me.GroupControlMain.Text = "登录服务端"
+        Me.GroupControlMain.Text = "服务状态"
         '
         'Timer1
         '
         Me.Timer1.Enabled = True
+        '
+        'LabelInfo
+        '
+        Me.LabelInfo.AutoSize = True
+        Me.LabelInfo.Location = New System.Drawing.Point(87, 29)
+        Me.LabelInfo.Name = "LabelInfo"
+        Me.LabelInfo.Size = New System.Drawing.Size(67, 14)
+        Me.LabelInfo.TabIndex = 0
+        Me.LabelInfo.Text = "服务端信息"
+        '
+        'TextBoxInfo
+        '
+        Me.TextBoxInfo.Location = New System.Drawing.Point(18, 46)
+        Me.TextBoxInfo.Multiline = True
+        Me.TextBoxInfo.Name = "TextBoxInfo"
+        Me.TextBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBoxInfo.Size = New System.Drawing.Size(241, 183)
+        Me.TextBoxInfo.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(399, 29)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(79, 14)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "访问控制服务"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(285, 46)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBox1.Size = New System.Drawing.Size(319, 183)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(623, 46)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(101, 30)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "检查服务端组件"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(623, 82)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(101, 30)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "查看服务日志"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(623, 119)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(101, 29)
+        Me.Button3.TabIndex = 6
+        Me.Button3.Text = "数据库重置"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(623, 191)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(101, 29)
+        Me.Button4.TabIndex = 7
+        Me.Button4.Text = "关闭"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'main
         '
@@ -1156,6 +1245,8 @@ Partial Class main
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControlMain.ResumeLayout(False)
+        Me.GroupControlMain.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1278,6 +1369,14 @@ Partial Class main
     Friend WithEvents BarList_Connect As DevExpress.XtraBars.BarListItem
     Friend WithEvents BarButton_Log_Manage As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxInfo As System.Windows.Forms.TextBox
+    Friend WithEvents LabelInfo As System.Windows.Forms.Label
 
 
 End Class

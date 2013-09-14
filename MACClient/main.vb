@@ -196,7 +196,11 @@ Public Class main
         CurrentSocket3 = StartTCPConnection(Server, 8010)
     End Sub
 
+
     Private Sub BarButton_Disconnect_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Disconnect.ItemClick
+        Disconnect()
+    End Sub
+    Friend Sub Disconnect()
         'Close all sockets and reset all properties
         CurrentSocket.Close()
         CurrentSocket2.Close()
@@ -227,5 +231,87 @@ Public Class main
         CEdit.Form = Me
         CEdit.GroupControl = GroupControlMain
         CEdit.Load()
+    End Sub
+
+    Private Sub BarButton_Service_Start_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Service_Start.ItemClick
+        Dim value As Byte
+        value = StartService(CurrentSocket, LoginCode)
+        BarStaticItem_Status.Caption = "已连接到" & Server & "  正在设置服务状态"
+        If value = 1 Or value = 2 Then
+            BarButton_Service_Start.Enabled = False
+            BarButton_Service_Stop.Enabled = True
+            BarButton_Service_Pause.Enabled = True
+            BarStaticItem_Status.Caption = "已连接到" & Server & "  服务正在运行"
+        Else
+            Select Case value
+                Case 0
+                    MsgBox("Unknown Error", vbExclamation, "MAC Client")
+                Case 3
+                    MsgBox("服务无法启动！", vbExclamation, "MAC Client")
+            End Select
+        End If
+    End Sub
+
+    Private Sub BarButton_Service_Pause_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Service_Pause.ItemClick
+        Dim value As Byte
+        value = PauseService(CurrentSocket, LoginCode)
+        If value = 1 Or value = 2 Then
+            BarButton_Service_Start.Enabled = True
+            BarButton_Service_Stop.Enabled = True
+            BarButton_Service_Pause.Enabled = False
+            BarStaticItem_Status.Caption = "已连接到" & Server & "  服务暂停"
+        Else
+            Select Case value
+                Case 0
+                    MsgBox("Unknown Error", vbExclamation, "MAC Client")
+                Case 3
+                    MsgBox("服务无法暂停！", vbExclamation, "MAC Client")
+            End Select
+        End If
+    End Sub
+
+    Private Sub BarButton_Service_Stop_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Service_Stop.ItemClick
+        Dim value As Byte
+        value = StopService(CurrentSocket, LoginCode)
+        If value = 1 Or value = 2 Then
+            BarButton_Service_Start.Enabled = False
+            BarButton_Service_Stop.Enabled = True
+            BarButton_Service_Pause.Enabled = True
+            BarStaticItem_Status.Caption = "已连接到" & Server & "  服务停止"
+        Else
+            Select Case value
+                Case 0
+                    MsgBox("Unknown Error", vbExclamation, "MAC Client")
+                Case 3
+                    MsgBox("服务无法停止！", vbExclamation, "MAC Client")
+            End Select
+        End If
+    End Sub
+
+    Private Sub BarButton_Service_Disable_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Service_Disable.ItemClick
+        Dim value As Byte
+        value = DisableService(CurrentSocket, LoginCode)
+        If value = 1 Or value = 2 Then
+            BarButton_Service_Start.Enabled = False
+            BarButton_Service_Stop.Enabled = True
+            BarButton_Service_Pause.Enabled = True
+            BarStaticItem_Status.Caption = "已连接到" & Server & "  服务已禁用"
+        Else
+            Select Case value
+                Case 0
+                    MsgBox("Unknown Error", vbExclamation, "MAC Client")
+                Case 3
+                    MsgBox("服务无法禁用！", vbExclamation, "MAC Client")
+            End Select
+        End If
+    End Sub
+
+    Private Sub BarButton_Service_Status_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Service_Status.ItemClick
+        Dim CStatus As ServiceStatus = New ServiceStatus
+        CStatus.Form = Me
+        CStatus.GroupControl = GroupControlMain
+        CStatus.Load()
+
+
     End Sub
 End Class

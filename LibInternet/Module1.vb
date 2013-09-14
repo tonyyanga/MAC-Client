@@ -20,6 +20,7 @@ Namespace Internet
         End Function
 
         Public Function TCPSend(Connection As Socket, Contents As String) As Boolean
+            'TCP Send
             Dim msg As Byte() = System.Text.Encoding.UTF8.GetBytes(Contents)
             Try
                 Connection.Send(msg)
@@ -31,6 +32,7 @@ Namespace Internet
         End Function
 
         Public Function TCPListen(Connection As Socket) As String
+            'TCP Listen. Ended with ###.
             Dim bytes() As Byte = New [Byte](1024) {}
             Dim data As String = ""
             Dim result As String = ""
@@ -39,10 +41,12 @@ Namespace Internet
                 Try
                     bytesRec = Connection.Receive(bytes)
                 Catch ex As Exception
+                    'If ex.ToString = SocketError.ConnectionReset Or ex = SocketError.HostDown Or ex = SocketError.NetworkDown Then Return "DISCONNECT###"
                     TCPListen = "ERROR"
                 End Try
                 data = System.Text.Encoding.UTF8.GetString(bytes, 0, bytesRec)
                 data = Trim(data)
+
                 If data = "###" Then
                     Exit While
                 Else
@@ -55,11 +59,12 @@ Namespace Internet
         End Function
 
         Public Function Login(CurrentSocket As Socket, Username As String, Passwd As String) As String
+            'Login and get login code, encrypted with "AUTH".
             Dim listen As String
             If Not (TCPSend(CurrentSocket, "LOGIN " & Username & "@" & Passwd)) Then Login = False
             listen = TCPListen(CurrentSocket)
             If Left(listen, 9) = "AUTH PASS" Then
-                Login = Right(listen, Microsoft.VisualBasic.Len(listen) - 9)
+                Return Decrypt(Right(listen, Microsoft.VisualBasic.Len(listen) - 9), "AUTH PASS")
             ElseIf listen = "AUTH FAIL" Then
                 Login = "FAIL"
             Else
@@ -84,65 +89,67 @@ Namespace Internet
         End Function
 
         Public Function GetStarFeature(Connection As Socket, LoginCode As String) As Byte
-            Dim listen As String
             If Not (TCPSend(Connection, Encrypt("GET FEATURE STAR", LoginCode))) Then GetStarFeature = 0
-            listen = TCPListen(Connection)
-            Select Case listen
-                Case "ENABLED"
-                    GetStarFeature = 1
-                Case "DISABLED"
-                    GetStarFeature = 2
-                Case "UNAVAILABLE"
-                    GetStarFeature = 3
-                Case Else
-                    GetStarFeature = 0
-            End Select
+            Return AnalyzeFeatureStatus(TCPListen(Connection))
         End Function
 
         Public Function GetLevelUp(Connection As Socket, LoginCode As String) As Byte
-            Dim listen As String
             If Not (TCPSend(Connection, Encrypt("GET FEATURE LEVELUP", LoginCode))) Then GetLevelUp = 0
-            listen = TCPListen(Connection)
-            Select Case listen
-                Case "ENABLED"
-                    GetLevelUp = 1
-                Case "DISABLED"
-                    GetLevelUp = 2
-                Case "UNAVAILABLE"
-                    GetLevelUp = 3
-                Case Else
-                    GetLevelUp = 0
-            End Select
+            Return AnalyzeFeatureStatus(TCPListen(Connection))
         End Function
         Public Function GetFileEncrypt(Connection As Socket, LoginCode As String) As Byte
-            Dim listen As String
             If Not (TCPSend(Connection, Encrypt("GET FEATURE FILEENCRYPT", LoginCode))) Then GetFileEncrypt = 0
-            listen = TCPListen(Connection)
-            Select Case listen
-                Case "ENABLED"
-                    GetFileEncrypt = 1
-                Case "DISABLED"
-                    GetFileEncrypt = 2
-                Case "UNAVAILABLE"
-                    GetFileEncrypt = 3
-                Case Else
-                    GetFileEncrypt = 0
-            End Select
+            Return AnalyzeFeatureStatus(TCPListen(Connection))
         End Function
         Public Function GetDomainControl(Connection As Socket, LoginCode As String) As Byte
-            Dim listen As String
             If Not (TCPSend(Connection, Encrypt("GET FEATUER DOMAINCTRL", LoginCode))) Then GetDomainControl = 0
-            listen = TCPListen(Connection)
-            Select Case listen
+           Return AnalyzeFeatureStatus(TCPListen(Connection))
+        End Function
+        Private Function AnalyzeFeatureStatus(value As String) As Byte
+            Select Case value
                 Case "ENABLED"
-                    GetDomainControl = 1
+                    Return 1
                 Case "DISABLED"
-                    GetDomainControl = 2
+                    Return 2
                 Case "UNAVAILABLE"
-                    GetDomainControl = 3
+                    Return 3
                 Case Else
-                    GetDomainControl = 0
+                    Return 0
             End Select
+        End Function
+        Private Function AnalyzeServiceCommand(value As String) As Byte
+            Select Case value
+                Case "SUCCEED"
+                    Return 1
+                Case "ALREADY"
+                    Return 2
+                Case "FAIL"
+                    Return 3
+                Case Else
+                    Return 0
+            End Select
+        End Function
+        Public Function StartService(Conn As Socket, Logincode As String) As Byte
+            If Not (TCPSend(Conn, Encrypt("START SERVICE", Logincode))) Then Return 0
+            Return AnalyzeServiceCommand(TCPListen(Conn))
+        End Function
+        Public Function PauseService(Conn As Socket, Logincode As String) As Byte
+            If Not (TCPSend(Conn, Encrypt("PAUSE SERVICE", Logincode))) Then Return 0
+            Return AnalyzeServiceCommand(TCPListen(Conn))
+        End Function
+        Public Function StopService(Conn As Socket, Logincode As String) As Byte
+            If Not (TCPSend(Conn, Encrypt("STOP SERVICE", Logincode))) Then Return 0
+            Return AnalyzeServiceCommand(TCPListen(Conn))
+        End Function
+        Public Function DisableService(Conn As Socket, Logincode As String) As Byte
+            If Not (TCPSend(Conn, Encrypt("DISABLE SERVICE", Logincode))) Then Return 0
+            Return AnalyzeServiceCommand(TCPListen(Conn))
+        End Function
+        Public Function CheckComp(Conn As Socket, Logincode As String) As String
+
+        End Function
+        Public Function ResetDB(Conn As Socket, Logincode As String) As Boolean
+
         End Function
     End Module
 End Namespace

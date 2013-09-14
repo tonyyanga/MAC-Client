@@ -1,12 +1,12 @@
 ﻿Public Class Conn_Edit
     Inherits CGroupControl
-    Friend Property Button1 As System.Windows.Forms.Button
-    Friend Property Button2 As System.Windows.Forms.Button
-    Friend Property Label2 As System.Windows.Forms.Label
-    Friend Property Label3 As System.Windows.Forms.Label
-    Friend Property Label4 As System.Windows.Forms.Label
-    Friend Property Textbox1 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
-    Friend Property Textbox2 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
+    Dim Button1 As System.Windows.Forms.Button
+    Dim Button2 As System.Windows.Forms.Button
+    Dim Label2 As System.Windows.Forms.Label
+    Dim Label3 As System.Windows.Forms.Label
+    Dim Label4 As System.Windows.Forms.Label
+    Dim Textbox1 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
+    Dim Textbox2 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
     Friend Property NewConn As Boolean = True
     Friend Property Origin_Server As String = ""
     Friend Property Origin_User As String = ""
