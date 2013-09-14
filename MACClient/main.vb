@@ -59,14 +59,13 @@ Public Class main
 
     Private Sub BarList_Connect_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_Connect.ListItemClick
         'Deal with BarList_Connect
+        Dim selected As String
         With BarList_Connect
-            If .Strings(.ItemIndex).ToString = "新连接" Then
+            selected = .Strings(.ItemIndex).ToString
+            If selected = "新连接" Then
                 Call Conn_Edit_Show()
             Else
-                Dim ConnectIP As String, ConnectUser As String
-                ConnectIP = Microsoft.VisualBasic.Left(.Strings(.ItemIndex).ToString, InStr(.Strings(.ItemIndex).ToString, "@") - 1)
-                ConnectUser = Microsoft.VisualBasic.Right(.Strings(.ItemIndex).ToString, InStr(.Strings(.ItemIndex).ToString, "@") - 1)
-                Connect(ConnectIP, ConnectUser)
+                Connect(Microsoft.VisualBasic.Left(selected, InStr(selected, "@") - 1), Microsoft.VisualBasic.Right(selected, InStr(selected, "@") - 1))
             End If
         End With
     End Sub
@@ -220,6 +219,13 @@ Public Class main
     End Sub
 
     Private Sub BarList_Conn_ManageProfiles_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_Conn_ManageProfiles.ListItemClick
-
+        Dim CEdit As Conn_Edit = New Conn_Edit
+        Dim selected As String = BarList_Conn_ManageProfiles.Strings(BarList_Conn_ManageProfiles.ItemIndex).ToString
+        CEdit.NewConn = False
+        CEdit.Origin_Server = Microsoft.VisualBasic.Left(selected, InStr(selected, "@") - 1)
+        CEdit.Origin_User = Microsoft.VisualBasic.Right(selected, InStr(selected, "@") - 1)
+        CEdit.Form = Me
+        CEdit.GroupControl = GroupControlMain
+        CEdit.Load()
     End Sub
 End Class

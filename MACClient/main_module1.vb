@@ -3,6 +3,7 @@ Imports System.IO
 Imports System.Collections
 Imports System.Text
 Imports Microsoft.VisualBasic
+
 Module main_module1
     Private Function LoadProfile(path As String) As ArrayList
         Dim connlist As New ArrayList
@@ -26,8 +27,9 @@ Module main_module1
         'WriteProfile = False
         'Exit Function
         'End Try
-        WriteProfile = True
         writer.Close()
+        WriteProfile = True
+
     End Function
     Public Sub LoadConn(ByRef Barlist1 As DevExpress.XtraBars.BarListItem, Optional ByRef Barlist2 As DevExpress.XtraBars.BarListItem = Nothing)
         If File.Exists(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt") Then
@@ -57,5 +59,31 @@ Module main_module1
             Return False
         End If
         Return True
+    End Function
+    Public Function EditConn(Server0 As String, User0 As String, Server1 As String, User1 As String) As Boolean
+        Dim connlist As New ArrayList
+        Dim reader As New StreamReader(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt")
+        Dim line As String = ""
+        Dim writer As StreamWriter = New StreamWriter(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt")
+        Try
+            Do
+                line = reader.ReadLine()
+                If Not (line = Nothing Or line = Trim(Server0) & " " & Trim(User0)) Then
+                    connlist.Add(line)
+                End If
+            Loop Until reader.EndOfStream
+            reader.Close()
+            File.Delete(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt")
+            File.Create(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client\Connections.txt")
+
+            For Each line In connlist
+                writer.Write(line)
+            Next
+            writer.Write(Trim(Server1) & " " & Trim(User1))
+            writer.Close()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
     End Function
 End Module

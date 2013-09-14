@@ -7,8 +7,9 @@
     Friend Property Label4 As System.Windows.Forms.Label
     Friend Property Textbox1 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
     Friend Property Textbox2 As System.Windows.Forms.TextBox = New System.Windows.Forms.TextBox
-    Friend Property NewConn As Boolean
-
+    Friend Property NewConn As Boolean = True
+    Friend Property Origin_Server As String = ""
+    Friend Property Origin_User As String = ""
     Friend Sub Load()
         Button1 = New System.Windows.Forms.Button()
         Button2 = New System.Windows.Forms.Button()
@@ -29,7 +30,7 @@
         GroupControl.Location = New System.Drawing.Point(282, 153)
         GroupControl.Size = New System.Drawing.Size(436, 234)
         GroupControl.TabIndex = 5
-        GroupControl.Text = "新连接"
+        If NewConn Then GroupControl.Text = "新连接" Else GroupControl.Text = "更改连接"
         'Button1
         Button1.Location = New System.Drawing.Point(188, 160)
         Button1.Size = New System.Drawing.Size(75, 23)
@@ -67,13 +68,13 @@
         Textbox2.Size = New System.Drawing.Size(100, 22)
         Textbox2.TabIndex = 6
         Textbox2.Name = "Textbox2"
-        Textbox2.Text = ""
+        Textbox2.Text = Origin_User
         'TextBox1
         Textbox1.Location = New System.Drawing.Point(176, 95)
         Textbox1.Size = New System.Drawing.Size(100, 22)
         Textbox1.TabIndex = 5
         Textbox1.Name = "Textbox1"
-        Textbox1.Text = ""
+        Textbox1.Text = Origin_Server
         Textbox1.Focus()
     End Sub
     Friend Sub Conn_Edit_Save_Click()
@@ -85,9 +86,11 @@
             If obj.Name = "Textbox2" Then user = DirectCast(obj, System.Windows.Forms.TextBox)
         Next
         Try
-            If Not (Directory.Exists(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client")) Then Directory.CreateDirectory(My.Computer.FileSystem.SpecialDirectories.MyDocuments & "\MAC Client")
-            If Not (main_module1.SaveConn(Trim(ip.Text), Trim(user.Text))) Then MsgBox("保存失败", vbOKOnly, "MAC Client")
-
+            If NewConn = True Then
+                If Not (main_module1.SaveConn(Trim(ip.Text), Trim(user.Text))) Then MsgBox("保存失败", vbOKOnly, "MAC Client")
+            Else
+                If Not (main_module1.EditConn(Origin_Server, Origin_User, Trim(ip.Text), Trim(user.Text))) Then MsgBox("保存失败", vbOKOnly, "MAC Client")
+            End If
         Catch ex As Exception
             MsgBox("保存失败, " & ex.Message, vbOKOnly, "MAC Client")
         End Try
