@@ -107,14 +107,23 @@ Public Class main
         End If
     End Sub
 
-    Friend Sub connected()
+    Friend Sub Connected()
         Dim obj As System.Windows.Forms.Control
+        Dim value As String(), str As String
         For Each obj In Me.Controls
             obj.Enabled = True
         Next
         'Form
         BarList_Connect.Enabled = False
         BarStaticItem_Status.Caption = "获取远程服务状态"
+        value = Split(GetBLPStategies(CurrentSocket, LoginCode), "|", , CompareMethod.Text)
+        For Each str In value
+            BarList_BLP_Strategies.Strings.Add(str)
+        Next
+        value = Split(Getlevels(CurrentSocket, LoginCode), "|", , CompareMethod.Text)
+        For Each str In value
+            BarList_BLP_EditLevel.Strings.Add(str)
+        Next
         Select Case GetStatus(CurrentSocket, LoginCode)
             Case 0
                 MsgBox("获取远程服务状态失败！" & Chr(10) & "连接将中断！", vbExclamation, "MAC Client")

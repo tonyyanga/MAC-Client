@@ -184,5 +184,13 @@ Namespace Internet
             End Select
             Return True
         End Function
+        Public Function GetBLPStategies(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET BLPSTATEGIES ", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
+        Public Function GetLevels(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET LEVELS ", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
     End Module
 End Namespace

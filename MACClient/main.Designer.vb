@@ -129,13 +129,32 @@ Partial Class main
         Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
         Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
         Me.ListView2 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.XtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
         Me.ListView3 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.ListView4 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupControlMain = New DevExpress.XtraEditors.GroupControl()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -146,25 +165,6 @@ Partial Class main
         Me.TextBoxInfo = New System.Windows.Forms.TextBox()
         Me.LabelInfo = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1080,6 +1080,29 @@ Partial Class main
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "ID"
+        Me.ColumnHeader9.Width = 30
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "时间"
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "主体"
+        Me.ColumnHeader6.Width = 83
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "目标类型"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "目标"
+        Me.ColumnHeader8.Width = 147
+        '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.ListView2)
@@ -1101,6 +1124,31 @@ Partial Class main
         Me.ListView2.UseCompatibleStateImageBehavior = False
         Me.ListView2.View = System.Windows.Forms.View.Details
         '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "PID"
+        Me.ColumnHeader10.Width = 35
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "进程名"
+        Me.ColumnHeader11.Width = 66
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "用户"
+        Me.ColumnHeader12.Width = 54
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "安全等级"
+        Me.ColumnHeader13.Width = 62
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "命令行"
+        Me.ColumnHeader14.Width = 163
+        '
         'XtraTabPage3
         '
         Me.XtraTabPage3.Controls.Add(Me.ListView3)
@@ -1121,6 +1169,30 @@ Partial Class main
         Me.ListView3.TabIndex = 2
         Me.ListView3.UseCompatibleStateImageBehavior = False
         Me.ListView3.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "ID"
+        Me.ColumnHeader15.Width = 25
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "服务名"
+        Me.ColumnHeader16.Width = 102
+        '
+        'ColumnHeader17
+        '
+        Me.ColumnHeader17.Text = "安全等级"
+        Me.ColumnHeader17.Width = 61
+        '
+        'ColumnHeader18
+        '
+        Me.ColumnHeader18.Text = "所属用户"
+        '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "描述信息"
+        Me.ColumnHeader19.Width = 130
         '
         'GroupControl1
         '
@@ -1153,6 +1225,26 @@ Partial Class main
         Me.ListView4.TabIndex = 0
         Me.ListView4.UseCompatibleStateImageBehavior = False
         Me.ListView4.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "ID"
+        Me.ColumnHeader1.Width = 29
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "类型"
+        Me.ColumnHeader2.Width = 59
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "提交时间"
+        Me.ColumnHeader3.Width = 79
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "描述"
+        Me.ColumnHeader4.Width = 387
         '
         'GroupControlMain
         '
@@ -1247,98 +1339,6 @@ Partial Class main
         'Timer1
         '
         Me.Timer1.Enabled = True
-        '
-        'ColumnHeader1
-        '
-        Me.ColumnHeader1.Text = "ID"
-        Me.ColumnHeader1.Width = 29
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "类型"
-        Me.ColumnHeader2.Width = 59
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "提交时间"
-        Me.ColumnHeader3.Width = 79
-        '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "描述"
-        Me.ColumnHeader4.Width = 387
-        '
-        'ColumnHeader5
-        '
-        Me.ColumnHeader5.Text = "时间"
-        '
-        'ColumnHeader6
-        '
-        Me.ColumnHeader6.Text = "主体"
-        Me.ColumnHeader6.Width = 83
-        '
-        'ColumnHeader7
-        '
-        Me.ColumnHeader7.Text = "目标类型"
-        '
-        'ColumnHeader8
-        '
-        Me.ColumnHeader8.Text = "目标"
-        Me.ColumnHeader8.Width = 147
-        '
-        'ColumnHeader9
-        '
-        Me.ColumnHeader9.Text = "ID"
-        Me.ColumnHeader9.Width = 30
-        '
-        'ColumnHeader10
-        '
-        Me.ColumnHeader10.Text = "PID"
-        Me.ColumnHeader10.Width = 35
-        '
-        'ColumnHeader11
-        '
-        Me.ColumnHeader11.Text = "进程名"
-        Me.ColumnHeader11.Width = 66
-        '
-        'ColumnHeader12
-        '
-        Me.ColumnHeader12.Text = "用户"
-        Me.ColumnHeader12.Width = 54
-        '
-        'ColumnHeader13
-        '
-        Me.ColumnHeader13.Text = "安全等级"
-        Me.ColumnHeader13.Width = 62
-        '
-        'ColumnHeader14
-        '
-        Me.ColumnHeader14.Text = "命令行"
-        Me.ColumnHeader14.Width = 163
-        '
-        'ColumnHeader15
-        '
-        Me.ColumnHeader15.Text = "ID"
-        Me.ColumnHeader15.Width = 25
-        '
-        'ColumnHeader16
-        '
-        Me.ColumnHeader16.Text = "服务名"
-        Me.ColumnHeader16.Width = 102
-        '
-        'ColumnHeader17
-        '
-        Me.ColumnHeader17.Text = "安全等级"
-        Me.ColumnHeader17.Width = 61
-        '
-        'ColumnHeader18
-        '
-        Me.ColumnHeader18.Text = "所属用户"
-        '
-        'ColumnHeader19
-        '
-        Me.ColumnHeader19.Text = "描述信息"
-        Me.ColumnHeader19.Width = 130
         '
         'main
         '
