@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Affairs.vb" />
+    <Compile Include="GetAffairs.vb" />
     <Compile Include="CGroupControl.vb" />
     <Compile Include="Conn_Edit.vb" />
     <Compile Include="GetSysStatus.vb" />

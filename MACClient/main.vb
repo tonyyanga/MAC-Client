@@ -179,7 +179,7 @@ Public Class main
         GroupControlMain.Visible = False
 
         'Affairs
-        Dim CAffairs As Affairs = New Affairs
+        Dim CAffairs As GetAffairs = New GetAffairs
         GetAffairs = New Thread(AddressOf CAffairs.GetAffairs)
         CAffairs.Form = Me
         CAffairs.ListView = ListView4
@@ -312,6 +312,10 @@ Public Class main
         CStatus.GroupControl = GroupControlMain
         CStatus.Load()
 
+
+    End Sub
+    Private Sub ListView4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView4.SelectedIndexChanged
+        Static CAffairs As Affairs = New Affairs
 
     End Sub
 End Class

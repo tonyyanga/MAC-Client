@@ -134,19 +134,37 @@ Partial Class main
         Me.XtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
         Me.ListView3 = New System.Windows.Forms.ListView()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.ListView4 = New System.Windows.Forms.ListView()
         Me.GroupControlMain = New DevExpress.XtraEditors.GroupControl()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelInfo = New System.Windows.Forms.Label()
-        Me.TextBoxInfo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxInfo = New System.Windows.Forms.TextBox()
+        Me.LabelInfo = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader7 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader8 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader9 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader10 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader11 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader12 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader13 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader14 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader15 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader16 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader17 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader18 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader19 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1037,7 +1055,7 @@ Partial Class main
         Me.XtraTabControl1.Location = New System.Drawing.Point(5, 25)
         Me.XtraTabControl1.Name = "XtraTabControl1"
         Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
-        Me.XtraTabControl1.Size = New System.Drawing.Size(397, 201)
+        Me.XtraTabControl1.Size = New System.Drawing.Size(397, 220)
         Me.XtraTabControl1.TabIndex = 2
         Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage3})
         '
@@ -1045,64 +1063,73 @@ Partial Class main
         '
         Me.XtraTabPage1.Controls.Add(Me.ListView1)
         Me.XtraTabPage1.Name = "XtraTabPage1"
-        Me.XtraTabPage1.Size = New System.Drawing.Size(391, 172)
+        Me.XtraTabPage1.Size = New System.Drawing.Size(391, 191)
         Me.XtraTabPage1.Text = "文件读写"
         '
         'ListView1
         '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader9, Me.ColumnHeader5, Me.ColumnHeader6, Me.ColumnHeader7, Me.ColumnHeader8})
+        Me.ListView1.GridLines = True
+        Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView1.HideSelection = False
         Me.ListView1.Location = New System.Drawing.Point(3, 3)
+        Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(385, 166)
+        Me.ListView1.Size = New System.Drawing.Size(385, 185)
         Me.ListView1.TabIndex = 0
         Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
         '
         'XtraTabPage2
         '
         Me.XtraTabPage2.Controls.Add(Me.ListView2)
         Me.XtraTabPage2.Name = "XtraTabPage2"
-        Me.XtraTabPage2.Size = New System.Drawing.Size(391, 172)
+        Me.XtraTabPage2.Size = New System.Drawing.Size(391, 191)
         Me.XtraTabPage2.Text = "进程"
         '
         'ListView2
         '
+        Me.ListView2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader10, Me.ColumnHeader11, Me.ColumnHeader12, Me.ColumnHeader13, Me.ColumnHeader14})
+        Me.ListView2.GridLines = True
+        Me.ListView2.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView2.HideSelection = False
         Me.ListView2.Location = New System.Drawing.Point(3, 3)
+        Me.ListView2.MultiSelect = False
         Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(385, 166)
+        Me.ListView2.Size = New System.Drawing.Size(385, 185)
         Me.ListView2.TabIndex = 1
         Me.ListView2.UseCompatibleStateImageBehavior = False
+        Me.ListView2.View = System.Windows.Forms.View.Details
         '
         'XtraTabPage3
         '
         Me.XtraTabPage3.Controls.Add(Me.ListView3)
         Me.XtraTabPage3.Name = "XtraTabPage3"
-        Me.XtraTabPage3.Size = New System.Drawing.Size(391, 172)
+        Me.XtraTabPage3.Size = New System.Drawing.Size(391, 191)
         Me.XtraTabPage3.Text = "服务"
         '
         'ListView3
         '
+        Me.ListView3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader15, Me.ColumnHeader16, Me.ColumnHeader17, Me.ColumnHeader18, Me.ColumnHeader19})
+        Me.ListView3.GridLines = True
+        Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView3.HideSelection = False
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
+        Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"
-        Me.ListView3.Size = New System.Drawing.Size(385, 166)
+        Me.ListView3.Size = New System.Drawing.Size(385, 185)
         Me.ListView3.TabIndex = 2
         Me.ListView3.UseCompatibleStateImageBehavior = False
+        Me.ListView3.View = System.Windows.Forms.View.Details
         '
         'GroupControl1
         '
-        Me.GroupControl1.Controls.Add(Me.LabelControl1)
         Me.GroupControl1.Controls.Add(Me.XtraTabControl1)
         Me.GroupControl1.Location = New System.Drawing.Point(586, 393)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.Size = New System.Drawing.Size(402, 250)
         Me.GroupControl1.TabIndex = 3
         Me.GroupControl1.Text = "客户端状态"
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Location = New System.Drawing.Point(9, 227)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(36, 14)
-        Me.LabelControl1.TabIndex = 3
-        Me.LabelControl1.Text = "未连接"
         '
         'GroupControl2
         '
@@ -1115,11 +1142,17 @@ Partial Class main
         '
         'ListView4
         '
+        Me.ListView4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.ListView4.GridLines = True
+        Me.ListView4.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView4.HideSelection = False
         Me.ListView4.Location = New System.Drawing.Point(5, 25)
+        Me.ListView4.MultiSelect = False
         Me.ListView4.Name = "ListView4"
         Me.ListView4.Size = New System.Drawing.Size(558, 216)
         Me.ListView4.TabIndex = 0
         Me.ListView4.UseCompatibleStateImageBehavior = False
+        Me.ListView4.View = System.Windows.Forms.View.Details
         '
         'GroupControlMain
         '
@@ -1137,54 +1170,23 @@ Partial Class main
         Me.GroupControlMain.TabIndex = 5
         Me.GroupControlMain.Text = "服务状态"
         '
-        'Timer1
+        'Button4
         '
-        Me.Timer1.Enabled = True
+        Me.Button4.Location = New System.Drawing.Point(623, 153)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(101, 29)
+        Me.Button4.TabIndex = 7
+        Me.Button4.Text = "拒绝并作为规则"
+        Me.Button4.UseVisualStyleBackColor = True
         '
-        'LabelInfo
+        'Button3
         '
-        Me.LabelInfo.AutoSize = True
-        Me.LabelInfo.Location = New System.Drawing.Point(87, 29)
-        Me.LabelInfo.Name = "LabelInfo"
-        Me.LabelInfo.Size = New System.Drawing.Size(67, 14)
-        Me.LabelInfo.TabIndex = 0
-        Me.LabelInfo.Text = "服务端信息"
-        '
-        'TextBoxInfo
-        '
-        Me.TextBoxInfo.Location = New System.Drawing.Point(18, 46)
-        Me.TextBoxInfo.Multiline = True
-        Me.TextBoxInfo.Name = "TextBoxInfo"
-        Me.TextBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBoxInfo.Size = New System.Drawing.Size(241, 183)
-        Me.TextBoxInfo.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(399, 29)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 14)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "访问控制服务"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(285, 46)
-        Me.TextBox1.Multiline = True
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox1.Size = New System.Drawing.Size(319, 183)
-        Me.TextBox1.TabIndex = 3
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(623, 46)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(101, 30)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "检查服务端组件"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button3.Location = New System.Drawing.Point(623, 119)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(101, 28)
+        Me.Button3.TabIndex = 6
+        Me.Button3.Text = "允许并作为规则"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -1192,26 +1194,151 @@ Partial Class main
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(101, 30)
         Me.Button2.TabIndex = 5
-        Me.Button2.Text = "查看服务日志"
+        Me.Button2.Text = "拒绝请求"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'Button1
         '
-        Me.Button3.Location = New System.Drawing.Point(623, 119)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(101, 29)
-        Me.Button3.TabIndex = 6
-        Me.Button3.Text = "数据库重置"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(623, 46)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(101, 30)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "允许请求"
+        Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button4
+        'TextBox1
         '
-        Me.Button4.Location = New System.Drawing.Point(623, 191)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(101, 29)
-        Me.Button4.TabIndex = 7
-        Me.Button4.Text = "关闭"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.TextBox1.Location = New System.Drawing.Point(394, 46)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBox1.Size = New System.Drawing.Size(210, 183)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(474, 29)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(79, 14)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "访问控制服务"
+        '
+        'TextBoxInfo
+        '
+        Me.TextBoxInfo.Location = New System.Drawing.Point(18, 46)
+        Me.TextBoxInfo.Multiline = True
+        Me.TextBoxInfo.Name = "TextBoxInfo"
+        Me.TextBoxInfo.ReadOnly = True
+        Me.TextBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.TextBoxInfo.Size = New System.Drawing.Size(370, 183)
+        Me.TextBoxInfo.TabIndex = 1
+        '
+        'LabelInfo
+        '
+        Me.LabelInfo.AutoSize = True
+        Me.LabelInfo.Location = New System.Drawing.Point(162, 29)
+        Me.LabelInfo.Name = "LabelInfo"
+        Me.LabelInfo.Size = New System.Drawing.Size(67, 14)
+        Me.LabelInfo.TabIndex = 0
+        Me.LabelInfo.Text = "服务端信息"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        '
+        'ColumnHeader1
+        '
+        Me.ColumnHeader1.Text = "ID"
+        Me.ColumnHeader1.Width = 29
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "类型"
+        Me.ColumnHeader2.Width = 59
+        '
+        'ColumnHeader3
+        '
+        Me.ColumnHeader3.Text = "提交时间"
+        Me.ColumnHeader3.Width = 79
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "描述"
+        Me.ColumnHeader4.Width = 387
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "时间"
+        '
+        'ColumnHeader6
+        '
+        Me.ColumnHeader6.Text = "主体"
+        Me.ColumnHeader6.Width = 83
+        '
+        'ColumnHeader7
+        '
+        Me.ColumnHeader7.Text = "目标类型"
+        '
+        'ColumnHeader8
+        '
+        Me.ColumnHeader8.Text = "目标"
+        Me.ColumnHeader8.Width = 147
+        '
+        'ColumnHeader9
+        '
+        Me.ColumnHeader9.Text = "ID"
+        Me.ColumnHeader9.Width = 30
+        '
+        'ColumnHeader10
+        '
+        Me.ColumnHeader10.Text = "PID"
+        Me.ColumnHeader10.Width = 35
+        '
+        'ColumnHeader11
+        '
+        Me.ColumnHeader11.Text = "进程名"
+        Me.ColumnHeader11.Width = 66
+        '
+        'ColumnHeader12
+        '
+        Me.ColumnHeader12.Text = "用户"
+        Me.ColumnHeader12.Width = 54
+        '
+        'ColumnHeader13
+        '
+        Me.ColumnHeader13.Text = "安全等级"
+        Me.ColumnHeader13.Width = 62
+        '
+        'ColumnHeader14
+        '
+        Me.ColumnHeader14.Text = "命令行"
+        Me.ColumnHeader14.Width = 163
+        '
+        'ColumnHeader15
+        '
+        Me.ColumnHeader15.Text = "ID"
+        Me.ColumnHeader15.Width = 25
+        '
+        'ColumnHeader16
+        '
+        Me.ColumnHeader16.Text = "服务名"
+        Me.ColumnHeader16.Width = 102
+        '
+        'ColumnHeader17
+        '
+        Me.ColumnHeader17.Text = "安全等级"
+        Me.ColumnHeader17.Width = 61
+        '
+        'ColumnHeader18
+        '
+        Me.ColumnHeader18.Text = "所属用户"
+        '
+        'ColumnHeader19
+        '
+        Me.ColumnHeader19.Text = "描述信息"
+        Me.ColumnHeader19.Width = 130
         '
         'main
         '
@@ -1241,7 +1368,6 @@ Partial Class main
         Me.XtraTabPage3.ResumeLayout(False)
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
-        Me.GroupControl1.PerformLayout()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1362,7 +1488,6 @@ Partial Class main
     Friend WithEvents XtraTabPage3 As DevExpress.XtraTab.XtraTabPage
     Friend WithEvents ListView3 As System.Windows.Forms.ListView
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents ListView4 As System.Windows.Forms.ListView
     Friend WithEvents GroupControlMain As DevExpress.XtraEditors.GroupControl
@@ -1377,6 +1502,25 @@ Partial Class main
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBoxInfo As System.Windows.Forms.TextBox
     Friend WithEvents LabelInfo As System.Windows.Forms.Label
+    Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader7 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader8 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader10 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader11 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader12 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader13 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader14 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader15 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader16 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader17 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader18 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader19 As System.Windows.Forms.ColumnHeader
 
 
 End Class

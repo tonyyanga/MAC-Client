@@ -1,4 +1,6 @@
 ﻿Imports System.Windows.Forms
+Imports System.Text
+Imports System.Collections
 Imports LibInternet
 Public Class ServiceStatus
     Inherits CGroupControl
@@ -46,7 +48,8 @@ Public Class ServiceStatus
         Me.TextBoxInfo.Name = "TextBoxInfo"
         Me.TextBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.TextBoxInfo.Size = New System.Drawing.Size(241, 183)
-        Me.TextBoxInfo.TabIndex = 1
+        Me.TextboxInfo.TabIndex = 1
+        TextboxInfo.ReadOnly = True
         '
         'Label1
         '
@@ -64,7 +67,8 @@ Public Class ServiceStatus
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.TextBox1.Size = New System.Drawing.Size(319, 183)
-        Me.TextBox1.TabIndex = 3
+        Me.Textbox1.TabIndex = 3
+        Textbox1.ReadOnly = True
         '
         'Button1
         '
@@ -105,7 +109,23 @@ Public Class ServiceStatus
         Me.Button4.Text = "关闭"
         Me.Button4.UseVisualStyleBackColor = True
         AddHandler Button4.Click, AddressOf Clean_GroupControl
+        GetInfo()
     End Sub
+    Private Sub GetInfo()
+        TextboxInfo.Text = Convert(Internet.GetSysInfo(Form.CurrentSocket, Form.LoginCode))
+        Textbox1.Text = Convert(Internet.GetServiceInfo(Form.CurrentSocket, Form.LoginCode))
+    End Sub
+    Private Function Convert(contents As String) As String
+        Dim connlist() As String
+        Dim value As String = ""
+        Dim line As String = ""
+        connlist = Split(contents, "|", , CompareMethod.Text)
+        For Each line In connlist
+            value = value + line + Chr(10)
+        Next
+        Return value
+    End Function
+
     Private Sub CheckComponets()
         MsgBox(Internet.CheckComp(Form.CurrentSocket, Form.LoginCode), vbOKOnly, "MAC Client")
     End Sub

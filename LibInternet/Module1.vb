@@ -146,10 +146,20 @@ Namespace Internet
             Return AnalyzeServiceCommand(TCPListen(Conn))
         End Function
         Public Function CheckComp(Conn As Socket, Logincode As String) As String
-
+            If Not (TCPSend(Conn, Encrypt("CHECK COMPONENTS", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
         End Function
         Public Function ResetDB(Conn As Socket, Logincode As String) As Boolean
-
+            If Not (TCPSend(Conn, Encrypt("CHECK COMPONENTS", Logincode))) Then Return False
+            If TCPListen(Conn) Then Return True Else Return False
+        End Function
+        Public Function GetSysInfo(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET SYSTEMINFO", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
+        Public Function GetServiceInfo(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET SERVICEINFO", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
         End Function
     End Module
 End Namespace
