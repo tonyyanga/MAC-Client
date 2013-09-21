@@ -315,7 +315,15 @@ Public Class main
 
     End Sub
     Private Sub ListView4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView4.SelectedIndexChanged
-        Static CAffairs As Affairs = New Affairs
+        Static CAffairs As Affairs
+        If CAffairs Is Nothing Then
+            CAffairs = New Affairs
+        End If
+        CAffairs.Load()
+    End Sub
 
+    Private Sub BarButton_Affairs_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Affairs.ItemClick
+        ListView4.Items.Item(0).Selected = True
+        ListView4.Select()
     End Sub
 End Class

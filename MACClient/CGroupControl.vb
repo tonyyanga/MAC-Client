@@ -9,6 +9,6 @@
             obj = Nothing
         Next
         GroupControl.Visible = False
-
+        GroupControl.Tag = Nothing
     End Sub
 End Class

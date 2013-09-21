@@ -161,5 +161,28 @@ Namespace Internet
             If Not (TCPSend(Conn, Encrypt("GET SERVICEINFO", Logincode))) Then Return "ERROR"
             Return (TCPListen(Conn))
         End Function
+        Public Function GetAffairsInfo(Conn As Socket, AffairsID As String, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET AFFAIRINFO " + AffairsID, Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
+        Public Function GetAffairsSuggestion(Conn As Socket, AffairsID As String, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET AFFAIRSUGGESTION " + affairsid, Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
+        Public Function AffairsResult(Conn As Socket, AffairsID As String, Method As Byte, Logincode As String) As Boolean
+            Select Case Method
+                Case 1
+                    If Not (TCPSend(Conn, Encrypt("AFFAIR " + AffairsID + " ALLOW", Logincode))) Then Return False
+                Case 2
+                    If Not (TCPSend(Conn, Encrypt("AFFAIR " + AffairsID + " REJECT", Logincode))) Then Return False
+                Case 3
+                    If Not (TCPSend(Conn, Encrypt("AFFAIR " + AffairsID + " ALLOWASRULE", Logincode))) Then Return False
+                Case 4
+                    If Not (TCPSend(Conn, Encrypt("AFFAIR " + AffairsID + " REJECTASRULE", Logincode))) Then Return False
+                Case Else
+                    Return False
+            End Select
+            Return True
+        End Function
     End Module
 End Namespace

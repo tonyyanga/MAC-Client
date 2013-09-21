@@ -31,6 +31,7 @@ Public Class ServiceStatus
         Me.GroupControl.Size = New System.Drawing.Size(741, 234)
         Me.GroupControl.TabIndex = 5
         Me.GroupControl.Text = "服务状态"
+        Me.GroupControl.Tag = "ServiceStatus"
         '
         'LabelInfo
         '

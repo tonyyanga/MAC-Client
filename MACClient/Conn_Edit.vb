@@ -31,6 +31,7 @@
         GroupControl.Size = New System.Drawing.Size(436, 234)
         GroupControl.TabIndex = 5
         If NewConn Then GroupControl.Text = "新连接" Else GroupControl.Text = "更改连接"
+        GroupControl.Tag = "Conn_Edit"
         'Button1
         Button1.Location = New System.Drawing.Point(188, 160)
         Button1.Size = New System.Drawing.Size(75, 23)
