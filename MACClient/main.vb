@@ -335,13 +335,13 @@ Public Class main
     End Sub
 
     Private Sub BarList_BLP_EditLevel_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_BLP_EditLevel.ListItemClick
+        Dim CMLSLevel As MLSLevel = New MLSLevel
         Dim Levelid As String
-        Levelid = GetLevelID(CurrentSocket, BarList_BLP_EditLevel.Strings.Item(BarList_BLP_EditLevel.ItemIndex).ToString, LoginCode)
-        If Levelid <> "ERROR" Then
-            Dim CMLSLevel As MLSLevel = New MLSLevel
+        Levelid = CMLSLevel.GetID(BarList_BLP_EditLevel.Strings(BarList_BLP_EditLevel.ItemIndex).ToString)
+        If Levelid <> "" Then
             CMLSLevel.Form = Me
             CMLSLevel.GroupControl = GroupControlMain
-            CMLSLevel.LevelID = Levelid
+            CMLSLevel.ID = Levelid
             CMLSLevel.Load()
         End If
     End Sub
@@ -350,7 +350,7 @@ Public Class main
         Dim CMLSLevel As MLSLevel = New MLSLevel
         CMLSLevel.Form = Me
         CMLSLevel.GroupControl = GroupControlMain
-        CMLSLevel.LevelID = ""
+        CMLSLevel.ID = ""
         CMLSLevel.Load()
     End Sub
 End Class

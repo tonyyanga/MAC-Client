@@ -158,6 +158,10 @@ Partial Class main
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupControlMain = New DevExpress.XtraEditors.GroupControl()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.ListView5 = New System.Windows.Forms.ListView()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -168,10 +172,9 @@ Partial Class main
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,6 +192,7 @@ Partial Class main
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControlMain.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'RibbonControl
@@ -339,7 +343,7 @@ Partial Class main
         '
         'BarButton_BLP_NewLevel
         '
-        Me.BarButton_BLP_NewLevel.Caption = "新增等级"
+        Me.BarButton_BLP_NewLevel.Caption = "新增等级/组"
         Me.BarButton_BLP_NewLevel.Enabled = False
         Me.BarButton_BLP_NewLevel.Glyph = CType(resources.GetObject("BarButton_BLP_NewLevel.Glyph"), System.Drawing.Image)
         Me.BarButton_BLP_NewLevel.Id = 26
@@ -348,7 +352,7 @@ Partial Class main
         '
         'BarList_BLP_EditLevel
         '
-        Me.BarList_BLP_EditLevel.Caption = "更改等级"
+        Me.BarList_BLP_EditLevel.Caption = "更改等级/组"
         Me.BarList_BLP_EditLevel.Enabled = False
         Me.BarList_BLP_EditLevel.Glyph = CType(resources.GetObject("BarList_BLP_EditLevel.Glyph"), System.Drawing.Image)
         Me.BarList_BLP_EditLevel.Id = 29
@@ -1261,6 +1265,7 @@ Partial Class main
         '
         'GroupControlMain
         '
+        Me.GroupControlMain.Controls.Add(Me.GroupBox1)
         Me.GroupControlMain.Controls.Add(Me.Panel1)
         Me.GroupControlMain.Controls.Add(Me.TextBox1)
         Me.GroupControlMain.Controls.Add(Me.Label1)
@@ -1288,6 +1293,42 @@ Partial Class main
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(475, 189)
         Me.Panel1.TabIndex = 4
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(376, 150)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(94, 23)
+        Me.Button3.TabIndex = 12
+        Me.Button3.Text = "修改所属等级"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(192, 150)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "放弃更改"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(274, 150)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(96, 23)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "保存"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(303, 10)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(55, 14)
+        Me.Label5.TabIndex = 9
+        Me.Label5.Text = "安全等级"
         '
         'ListView5
         '
@@ -1356,7 +1397,7 @@ Partial Class main
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox1.Size = New System.Drawing.Size(208, 189)
+        Me.TextBox1.Size = New System.Drawing.Size(208, 110)
         Me.TextBox1.TabIndex = 1
         '
         'Label1
@@ -1372,41 +1413,38 @@ Partial Class main
         '
         Me.Timer1.Enabled = True
         '
-        'Label5
+        'GroupBox1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(303, 10)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(55, 14)
-        Me.Label5.TabIndex = 9
-        Me.Label5.Text = "安全等级"
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 156)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 74)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "新建"
         '
-        'Button1
+        'RadioButton1
         '
-        Me.Button1.Location = New System.Drawing.Point(274, 150)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(96, 23)
-        Me.Button1.TabIndex = 10
-        Me.Button1.Text = "保存"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(23, 21)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(109, 18)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.Text = "新建安全等级组"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'RadioButton2
         '
-        Me.Button2.Location = New System.Drawing.Point(192, 150)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "放弃更改"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(376, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(94, 23)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "修改所属等级"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Checked = True
+        Me.RadioButton2.Location = New System.Drawing.Point(23, 45)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(97, 18)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "新建安全等级"
+        Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'main
         '
@@ -1443,6 +1481,8 @@ Partial Class main
         Me.GroupControlMain.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1597,6 +1637,9 @@ Partial Class main
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
 
 
 End Class

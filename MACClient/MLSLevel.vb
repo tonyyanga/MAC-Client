@@ -15,9 +15,83 @@ Public Class MLSLevel
     Friend Button1 As System.Windows.Forms.Button = New Button
     Friend Label5 As System.Windows.Forms.Label = New Label
     Friend Button3 As System.Windows.Forms.Button = New Button
-    Friend Property LevelID As String
+    Friend Property ID As String
+    Private Property MLSObject As MLS.MLSCollection = New MLS.MLSCollection
+    Friend Misson As Byte '1 = new;2=edit level;3=edit group
+    Friend GroupBox1 As GroupBox
+    Friend RadioButton1 As RadioButton
+    Friend RadioButton2 As RadioButton
     Friend Sub Load()
         If CStr(GroupControl.Tag) <> "MLSLevel" Then
+            If Misson >= 2 Then
+                Me.TextBox1.Size = New System.Drawing.Size(208, 189)
+                If Misson = 2 Then
+                    Me.GroupControl.Text = "设置安全等级"
+                    Me.Label4.Text = "等级描述"
+                    Me.Label3.Text = "等级名称"
+                    Me.Label2.Text = "等级ID"
+                    Me.Label1.Text = "等级信息"
+                    Me.Button3.Text = "删除等级"
+                ElseIf Misson = 3 Then
+                    Me.GroupControl.Text = "设置安全等级"
+                    Me.Label4.Text = "组别描述"
+                    Me.Label3.Text = "组别名称"
+                    Me.Label2.Text = "组别ID"
+                    Me.Label1.Text = "组别信息"
+                    Me.Button3.Text = "删除组别"
+                End If
+            ElseIf Misson = 1 Then
+                Me.TextBox1.Size = New System.Drawing.Size(208, 110)
+                RadioButton1 = New RadioButton
+                RadioButton2 = New RadioButton
+                GroupBox1 = New GroupBox
+                'GroupBox1
+                '
+                Me.GroupBox1.Controls.Add(Me.RadioButton2)
+                Me.GroupBox1.Controls.Add(Me.RadioButton1)
+                Me.GroupBox1.Location = New System.Drawing.Point(10, 156)
+                Me.GroupBox1.Name = "GroupBox1"
+                Me.GroupBox1.Size = New System.Drawing.Size(200, 74)
+                Me.GroupBox1.TabIndex = 5
+                Me.GroupBox1.TabStop = False
+                Me.GroupBox1.Text = "新建"
+                '
+                'RadioButton1
+                '
+                Me.RadioButton1.AutoSize = True
+                Me.RadioButton1.Location = New System.Drawing.Point(23, 21)
+                Me.RadioButton1.Name = "RadioButton1"
+                Me.RadioButton1.Size = New System.Drawing.Size(109, 18)
+                Me.RadioButton1.TabIndex = 0
+                Me.RadioButton1.Text = "新建安全等级组"
+                Me.RadioButton1.UseVisualStyleBackColor = True
+                AddHandler RadioButton1.CheckedChanged, AddressOf SwitchtoGroup
+                '
+                'RadioButton2
+                '
+                Me.RadioButton2.AutoSize = True
+                Me.RadioButton2.Checked = True
+                Me.RadioButton2.Location = New System.Drawing.Point(23, 45)
+                Me.RadioButton2.Name = "RadioButton2"
+                Me.RadioButton2.Size = New System.Drawing.Size(97, 18)
+                Me.RadioButton2.TabIndex = 1
+                Me.RadioButton2.TabStop = True
+                Me.RadioButton2.Text = "新建安全等级"
+                Me.RadioButton2.UseVisualStyleBackColor = True
+                AddHandler RadioButton2.CheckedChanged, AddressOf SwitchtoLevel
+                Me.GroupControl.Text = "新建安全等级/组"
+                Me.Label4.Text = "等级描述"
+                Me.Label3.Text = "等级名称"
+                Me.Label2.Text = "等级ID"
+                Me.Label1.Text = "等级信息"
+                Me.Button3.Text = "删除等级"
+            End If
+            Me.TextBox1.Location = New System.Drawing.Point(7, 40)
+            Me.TextBox1.Multiline = True
+            Me.TextBox1.Name = "TextBox1"
+            Me.TextBox1.ReadOnly = True
+            Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+            Me.TextBox1.TabIndex = 1
             'Groupcontrol
             '
             Clean_GroupControl()
@@ -28,7 +102,7 @@ Public Class MLSLevel
             Me.GroupControl.Name = "groupcontrol"
             Me.GroupControl.Size = New System.Drawing.Size(741, 234)
             Me.GroupControl.TabIndex = 5
-            Me.GroupControl.Text = "设置安全等级"
+
             GroupControl.Tag = "MLSLevel"
             '
             'Panel1
@@ -76,7 +150,7 @@ Public Class MLSLevel
             Me.Label4.Name = "Label4"
             Me.Label4.Size = New System.Drawing.Size(55, 14)
             Me.Label4.TabIndex = 6
-            Me.Label4.Text = "等级描述"
+
             '
             'TextBox3
             '
@@ -92,7 +166,7 @@ Public Class MLSLevel
             Me.Label3.Name = "Label3"
             Me.Label3.Size = New System.Drawing.Size(55, 14)
             Me.Label3.TabIndex = 4
-            Me.Label3.Text = "等级名称"
+
             '
             'TextBox2
             '
@@ -100,6 +174,7 @@ Public Class MLSLevel
             Me.TextBox2.Name = "TextBox2"
             Me.TextBox2.Size = New System.Drawing.Size(100, 22)
             Me.TextBox2.TabIndex = 3
+            TextBox2.ReadOnly = True
             '
             'Label2
             '
@@ -108,17 +183,8 @@ Public Class MLSLevel
             Me.Label2.Name = "Label2"
             Me.Label2.Size = New System.Drawing.Size(55, 14)
             Me.Label2.TabIndex = 2
-            Me.Label2.Text = "等级名称"
-            '
-            'TextBox1
-            '
-            Me.TextBox1.Location = New System.Drawing.Point(7, 40)
-            Me.TextBox1.Multiline = True
-            Me.TextBox1.Name = "TextBox1"
-            Me.TextBox1.ReadOnly = True
-            Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-            Me.TextBox1.Size = New System.Drawing.Size(208, 189)
-            Me.TextBox1.TabIndex = 1
+
+            
             '
             'Label1
             '
@@ -127,7 +193,7 @@ Public Class MLSLevel
             Me.Label1.Name = "Label1"
             Me.Label1.Size = New System.Drawing.Size(55, 14)
             Me.Label1.TabIndex = 0
-            Me.Label1.Text = "等级信息"
+
             '
             'Label5
             '
@@ -164,19 +230,60 @@ Public Class MLSLevel
             Me.Button3.Name = "Button3"
             Me.Button3.Size = New System.Drawing.Size(94, 23)
             Me.Button3.TabIndex = 12
-            Me.Button3.Text = "修改所属等级"
+
             Me.Button3.UseVisualStyleBackColor = True
-            AddHandler Button3.Click, AddressOf EditComponets
+            AddHandler Button3.Click, AddressOf Del
         End If
         GetLevelInfo()
     End Sub
-    Private Sub GetLevelInfo()
+    Friend Function GetID(Name As String) As String
+        If MLSObject Is Nothing Then MLSObject = Internet.GetLevelDetails(Form.CurrentSocket, Form.LoginCode)
+        For Each level As MLS.Level In MLSObject.Levels
+            If level.Name = Name Then Return level.ID
+        Next
+        Return ""
+    End Function
+    Private Sub SwitchtoGroup()
 
     End Sub
+    Private Sub SwitchtoLevel()
+
+    End Sub
+    Private Sub GetLevelInfo()
+
+        If MLSObject Is Nothing Then MLSObject = Internet.GetLevelDetails(Form.CurrentSocket, Form.LoginCode)
+        If Misson = 2 Then
+            Dim ThisLevel As MLS.Level = New MLS.Level
+            ThisLevel = MLSObject.GetLevel(ID)
+            If ThisLevel Is Nothing Then
+                MsgBox("此等级不存在！", vbExclamation, "MAC Client")
+                Clean_GroupControl()
+                Exit Sub
+            End If
+            TextBox4.Text = ThisLevel.Description
+            TextBox2.Text = ThisLevel.ID
+            TextBox3.Text = ThisLevel.Name
+            TextBox1.Text = ThisLevel.info
+        ElseIf Misson = 3 Then
+            Dim ThisGroup As MLS.LevelGroup = New MLS.LevelGroup
+            ThisGroup = MLSObject.GetGroup(ID)
+            If ThisGroup Is Nothing Then
+                MsgBox("此组别不存在！", vbExclamation, "MAC Client")
+                Clean_GroupControl()
+                Exit Sub
+            End If
+            TextBox4.Text = ThisGroup.Description
+            TextBox2.Text = ThisGroup.ID
+            TextBox3.Text = ThisGroup.Name
+            TextBox1.Text = ThisGroup.Info
+        End If
+        'Order required here!
+    End Sub
+
     Private Sub Save()
 
     End Sub
-    Private Sub EditComponets()
+    Private Sub Del()
 
     End Sub
 End Class

@@ -192,10 +192,12 @@ Namespace Internet
             If Not (TCPSend(Conn, Encrypt("GET LEVELS ", Logincode))) Then Return "ERROR"
             Return (TCPListen(Conn))
         End Function
-        Public Function GetLevelID(Conn As Socket, LevelName As String, Logincode As String) As String
-            If Not (TCPSend(Conn, Encrypt("GET LEVELS ", Logincode))) Then Return "ERROR"
-            Return (TCPListen(Conn))
-        End Function
+        'Public Function GetLevelID(Conn As Socket, LevelName As String, Logincode As String) As String
+        '    If Not (TCPSend(Conn, Encrypt("GET LEVELS ", Logincode))) Then Return "ERROR"
+        '    Return (TCPListen(Conn))
+        'End Function
+        Public Function GetLevelDetails(Conn As Socket, Logincode As String) As MLS.MLSCollection
 
+        End Function
     End Module
 End Namespace
