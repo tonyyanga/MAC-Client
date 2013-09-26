@@ -320,8 +320,6 @@ Public Class main
         CStatus.Form = Me
         CStatus.GroupControl = GroupControlMain
         CStatus.Load()
-
-
     End Sub
     Private Sub ListView4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView4.SelectedIndexChanged
         Static CAffairs As Affairs
@@ -334,5 +332,25 @@ Public Class main
     Private Sub BarButton_Affairs_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Affairs.ItemClick
         ListView4.Items.Item(0).Selected = True
         ListView4.Select()
+    End Sub
+
+    Private Sub BarList_BLP_EditLevel_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_BLP_EditLevel.ListItemClick
+        Dim Levelid As String
+        Levelid = GetLevelID(CurrentSocket, BarList_BLP_EditLevel.Strings.Item(BarList_BLP_EditLevel.ItemIndex).ToString, LoginCode)
+        If Levelid <> "ERROR" Then
+            Dim CMLSLevel As MLSLevel = New MLSLevel
+            CMLSLevel.Form = Me
+            CMLSLevel.GroupControl = GroupControlMain
+            CMLSLevel.LevelID = Levelid
+            CMLSLevel.Load()
+        End If
+    End Sub
+
+    Private Sub BarButton_BLP_NewLevel_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_BLP_NewLevel.ItemClick
+        Dim CMLSLevel As MLSLevel = New MLSLevel
+        CMLSLevel.Form = Me
+        CMLSLevel.GroupControl = GroupControlMain
+        CMLSLevel.LevelID = ""
+        CMLSLevel.Load()
     End Sub
 End Class
