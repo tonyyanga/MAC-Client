@@ -202,5 +202,9 @@ Namespace Internet
         Public Function AdoptStrategy(Conn As Socket, Logincode As String, name As String) As Boolean
             Return TCPSend(Conn, Encrypt("SET STRATEGY " + name, Logincode))
         End Function
+        Public Function GetAffairLog(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET AFFAIRLOG ", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
     End Module
 End Namespace

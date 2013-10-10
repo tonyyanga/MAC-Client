@@ -362,4 +362,9 @@ Public Class main
         ListView4.Items.Item(CInt(e.Item.Tag)).Selected = True
         ListView4.Select()
     End Sub
+
+    Private Sub BarButton_SbjReqHistory_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_SbjReqHistory.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(LibInternet.Internet.GetAffairLog(CurrentSocket, LoginCode))
+    End Sub
 End Class

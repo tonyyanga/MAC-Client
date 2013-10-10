@@ -21,7 +21,7 @@ Partial Class main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
-        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.BarButtonItem_Connect_Menu = New DevExpress.XtraBars.BarButtonItem()
@@ -1177,7 +1177,7 @@ Partial Class main
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
+        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem2})
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
         Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"

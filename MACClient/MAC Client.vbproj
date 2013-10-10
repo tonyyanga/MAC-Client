@@ -86,6 +86,12 @@
     <Compile Include="CGroupControl.vb" />
     <Compile Include="Conn_Edit.vb" />
     <Compile Include="GetSysStatus.vb" />
+    <Compile Include="Log.Designer.vb">
+      <DependentUpon>Log.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Log.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.vb" />
     <Compile Include="main.Designer.vb">
       <DependentUpon>main.vb</DependentUpon>
@@ -99,6 +105,9 @@
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="ServiceStatus.vb" />
     <Compile Include="Uptime.vb" />
+    <EmbeddedResource Include="Log.resx">
+      <DependentUpon>Log.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="main.resx">
       <DependentUpon>main.vb</DependentUpon>
       <SubType>Designer</SubType>
