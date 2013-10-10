@@ -65,7 +65,7 @@ Public Class MLSLevel
                 Me.RadioButton1.TabIndex = 0
                 Me.RadioButton1.Text = "新建安全等级组"
                 Me.RadioButton1.UseVisualStyleBackColor = True
-                AddHandler RadioButton1.CheckedChanged, AddressOf SwitchtoGroup
+                AddHandler RadioButton1.CheckedChanged, AddressOf Switch
                 '
                 'RadioButton2
                 '
@@ -78,7 +78,7 @@ Public Class MLSLevel
                 Me.RadioButton2.TabStop = True
                 Me.RadioButton2.Text = "新建安全等级"
                 Me.RadioButton2.UseVisualStyleBackColor = True
-                AddHandler RadioButton2.CheckedChanged, AddressOf SwitchtoLevel
+                AddHandler RadioButton2.CheckedChanged, AddressOf Switch
                 Me.GroupControl.Text = "新建安全等级/组"
                 Me.Label4.Text = "等级描述"
                 Me.Label3.Text = "等级名称"
@@ -243,14 +243,19 @@ Public Class MLSLevel
         Next
         Return ""
     End Function
-    Private Sub SwitchtoGroup()
-
-    End Sub
-    Private Sub SwitchtoLevel()
-
+    Private Sub Switch()
+        TextBox2.Text = ""
+        TextBox3.Text = ""
+        TextBox4.Text = ""
+        If RadioButton1.Checked Then
+            loadgroup()
+            ListView5.Items.Add("New group")
+        Else
+            loadlevel()
+            ListView5.Items.Add("New level")
+        End If
     End Sub
     Private Sub GetLevelInfo()
-
         If MLSObject Is Nothing Then MLSObject = Internet.GetLevelDetails(Form.CurrentSocket, Form.LoginCode)
         If Misson = 2 Then
             Dim ThisLevel As MLS.Level = New MLS.Level
@@ -263,7 +268,8 @@ Public Class MLSLevel
             TextBox4.Text = ThisLevel.Description
             TextBox2.Text = ThisLevel.ID
             TextBox3.Text = ThisLevel.Name
-            TextBox1.Text = ThisLevel.info
+            TextBox1.Text = ThisLevel.Info
+            loadgroup()
         ElseIf Misson = 3 Then
             Dim ThisGroup As MLS.LevelGroup = New MLS.LevelGroup
             ThisGroup = MLSObject.GetGroup(ID)
@@ -276,8 +282,71 @@ Public Class MLSLevel
             TextBox2.Text = ThisGroup.ID
             TextBox3.Text = ThisGroup.Name
             TextBox1.Text = ThisGroup.Info
+            loadlevel()
+        ElseIf Misson = 0 Then
+            loadlevel()
+            ListView5.Items.Add("New level")
         End If
-        'Order required here!
+
+    End Sub
+    Private Sub loadgroup()
+        Dim i As Integer, item As ListViewItem, subitem As ListViewItem.ListViewSubItem
+        Dim thisgroup As MLS.LevelGroup
+        With ListView5
+            .Items.Clear()
+            For i = 0 To MLSObject.Groups.Count - 1
+                item = New ListViewItem
+                subitem = New ListViewItem.ListViewSubItem
+                thisgroup = MLSObject.GetGroup(i)
+                subitem.Text = thisgroup.Name
+                item.SubItems.Add(subitem)
+                item.Text = thisgroup.ID
+                .Items.Add(item)
+            Next
+        End With
+    End Sub
+    Private Sub loadlevel()
+        Dim thislevel As MLS.Level = New MLS.Level, thisgroup As MLS.LevelGroup
+        Dim i As Integer
+        Dim group As ListViewGroupCollection
+        With ListView5
+            .Items.Clear()
+            group = ListView5.Groups
+            For i = 0 To MLSObject.Groups.Count - 1
+                Dim item As ListViewGroup = New ListViewGroup
+                thisgroup = MLSObject.GetGroup(i)
+                item.Header = thisgroup.Name
+                group.Add(item)
+            Next
+            For i = 0 To MLSObject.Levels.Count - 1
+                '    Dim item As ListViewItem, subitem As ListViewItem.ListViewSubItem
+                '    item = New ListViewItem
+                '    'subitem = New ListViewItem.ListViewSubItem
+                '    'thislevel = MLSObject.GetLevel(i)
+                '    'subitem.Text = thislevel.Name
+                '    'item.SubItems.Add(subitem)
+                '    'item.Text = thislevel.ID
+                '    item.Tag = MLSObject.GetLevel(i)
+                '    For Each obj As ListViewGroup In group
+                '        If obj.Header = thislevel.GroupBelongTo Then
+                '            item.Group = obj
+                '            obj.Items.Add(item)
+                '        End If
+                '    Next
+
+                'Next
+                'For Each obj As ListViewGroup In group
+                '    i = 0
+                '    While True
+
+                '    End While
+
+                '#################################################
+                'Order required
+                '#################################################
+            Next
+
+        End With
     End Sub
 
     Private Sub Save()

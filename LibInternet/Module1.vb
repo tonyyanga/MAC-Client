@@ -199,5 +199,8 @@ Namespace Internet
         Public Function GetLevelDetails(Conn As Socket, Logincode As String) As MLS.MLSCollection
 
         End Function
+        Public Function AdoptStrategy(Conn As Socket, Logincode As String, name As String) As Boolean
+            Return TCPSend(Conn, Encrypt("SET STRATEGY " + name, Logincode))
+        End Function
     End Module
 End Namespace

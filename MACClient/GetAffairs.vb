@@ -15,7 +15,7 @@
         End While
     End Sub
     Private Sub Convert(ByRef contents As String)
-
+        'Remember to set the buttonlist and label it with Tag property.
     End Sub
 
 End Class

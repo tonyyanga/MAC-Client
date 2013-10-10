@@ -21,7 +21,7 @@ Partial Class main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem1 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.BarButtonItem_Connect_Menu = New DevExpress.XtraBars.BarButtonItem()
@@ -157,6 +157,9 @@ Partial Class main
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupControlMain = New DevExpress.XtraEditors.GroupControl()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -172,9 +175,6 @@ Partial Class main
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -191,8 +191,8 @@ Partial Class main
         Me.GroupControl2.SuspendLayout()
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControlMain.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'RibbonControl
@@ -1177,7 +1177,7 @@ Partial Class main
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem3})
+        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem1})
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
         Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"
@@ -1275,6 +1275,39 @@ Partial Class main
         Me.GroupControlMain.TabIndex = 5
         Me.GroupControlMain.Text = "设置安全等级"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 156)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 74)
+        Me.GroupBox1.TabIndex = 5
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "新建"
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Checked = True
+        Me.RadioButton2.Location = New System.Drawing.Point(23, 45)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(97, 18)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "新建安全等级"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(23, 21)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(109, 18)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.Text = "新建安全等级组"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -1307,16 +1340,16 @@ Partial Class main
         '
         Me.Button2.Location = New System.Drawing.Point(192, 150)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.Size = New System.Drawing.Size(85, 23)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "放弃更改"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(274, 150)
+        Me.Button1.Location = New System.Drawing.Point(283, 150)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(96, 23)
+        Me.Button1.Size = New System.Drawing.Size(87, 23)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "保存"
         Me.Button1.UseVisualStyleBackColor = True
@@ -1333,6 +1366,7 @@ Partial Class main
         'ListView5
         '
         Me.ListView5.AllowDrop = True
+        Me.ListView5.LabelEdit = True
         Me.ListView5.Location = New System.Drawing.Point(192, 27)
         Me.ListView5.MultiSelect = False
         Me.ListView5.Name = "ListView5"
@@ -1413,39 +1447,6 @@ Partial Class main
         '
         Me.Timer1.Enabled = True
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 156)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 74)
-        Me.GroupBox1.TabIndex = 5
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "新建"
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(23, 21)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(109, 18)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.Text = "新建安全等级组"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Checked = True
-        Me.RadioButton2.Location = New System.Drawing.Point(23, 45)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(97, 18)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "新建安全等级"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
@@ -1479,10 +1480,10 @@ Partial Class main
         CType(Me.GroupControlMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControlMain.ResumeLayout(False)
         Me.GroupControlMain.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

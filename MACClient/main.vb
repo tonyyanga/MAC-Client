@@ -353,4 +353,13 @@ Public Class main
         CMLSLevel.ID = ""
         CMLSLevel.Load()
     End Sub
+
+    Private Sub BarList_BLP_Strategies_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_BLP_Strategies.ListItemClick
+        If Not (AdoptStrategy(CurrentSocket, LoginCode, e.Item.Caption)) Then MsgBox("更换规则失败。", vbOKOnly, "MAC Client")
+    End Sub
+
+    Private Sub BarList_SbjRequest_ListItemClick(sender As Object, e As DevExpress.XtraBars.ListItemClickEventArgs) Handles BarList_SbjRequest.ListItemClick
+        ListView4.Items.Item(CInt(e.Item.Tag)).Selected = True
+        ListView4.Select()
+    End Sub
 End Class
