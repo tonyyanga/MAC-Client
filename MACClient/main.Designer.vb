@@ -21,7 +21,7 @@ Partial Class main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
-        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem7 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.BarButtonItem_Connect_Menu = New DevExpress.XtraBars.BarButtonItem()
@@ -99,16 +99,16 @@ Partial Class main
         Me.RibbonPage_Level = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup14 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage_Subject = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup7 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup8 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup9 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup11 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup12 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup13 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup14 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup15 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage_Network = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup16 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -161,11 +161,12 @@ Partial Class main
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ListView5 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -175,9 +176,11 @@ Partial Class main
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -862,6 +865,20 @@ Partial Class main
         Me.RibbonPageGroup6.Name = "RibbonPageGroup6"
         Me.RibbonPageGroup6.Text = "多级安全策略"
         '
+        'RibbonPageGroup10
+        '
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButton_Sbj_PromotionLimit)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButton_Sbj_PromotionHistory)
+        Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
+        Me.RibbonPageGroup10.Text = "程序组临时提升策略"
+        '
+        'RibbonPageGroup14
+        '
+        Me.RibbonPageGroup14.ItemLinks.Add(Me.BarButton_Obj_PromoteHistory)
+        Me.RibbonPageGroup14.ItemLinks.Add(Me.BarButton_Obj_PromoteException)
+        Me.RibbonPageGroup14.Name = "RibbonPageGroup14"
+        Me.RibbonPageGroup14.Text = "文件等级提升策略"
+        '
         'RibbonPage_Subject
         '
         Me.RibbonPage_Subject.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup7, Me.RibbonPageGroup8, Me.RibbonPageGroup9, Me.RibbonPageGroup11})
@@ -890,13 +907,6 @@ Partial Class main
         Me.RibbonPageGroup9.ItemLinks.Add(Me.BarList_Sbj_ProfileApply)
         Me.RibbonPageGroup9.Name = "RibbonPageGroup9"
         Me.RibbonPageGroup9.Text = "程序组配置文件"
-        '
-        'RibbonPageGroup10
-        '
-        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButton_Sbj_PromotionLimit)
-        Me.RibbonPageGroup10.ItemLinks.Add(Me.BarButton_Sbj_PromotionHistory)
-        Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
-        Me.RibbonPageGroup10.Text = "程序组临时提升策略"
         '
         'RibbonPageGroup11
         '
@@ -930,13 +940,6 @@ Partial Class main
         Me.RibbonPageGroup13.ItemLinks.Add(Me.BarList_Obj_Apply)
         Me.RibbonPageGroup13.Name = "RibbonPageGroup13"
         Me.RibbonPageGroup13.Text = "文件等级配置文件"
-        '
-        'RibbonPageGroup14
-        '
-        Me.RibbonPageGroup14.ItemLinks.Add(Me.BarButton_Obj_PromoteHistory)
-        Me.RibbonPageGroup14.ItemLinks.Add(Me.BarButton_Obj_PromoteException)
-        Me.RibbonPageGroup14.Name = "RibbonPageGroup14"
-        Me.RibbonPageGroup14.Text = "文件等级提升策略"
         '
         'RibbonPageGroup15
         '
@@ -1180,7 +1183,7 @@ Partial Class main
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem3})
+        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem7})
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
         Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"
@@ -1272,9 +1275,9 @@ Partial Class main
         Me.GroupControlMain.Controls.Add(Me.Panel1)
         Me.GroupControlMain.Controls.Add(Me.TextBox1)
         Me.GroupControlMain.Controls.Add(Me.Label1)
-        Me.GroupControlMain.Location = New System.Drawing.Point(91, 153)
+        Me.GroupControlMain.Location = New System.Drawing.Point(12, 153)
         Me.GroupControlMain.Name = "GroupControlMain"
-        Me.GroupControlMain.Size = New System.Drawing.Size(741, 234)
+        Me.GroupControlMain.Size = New System.Drawing.Size(976, 234)
         Me.GroupControlMain.TabIndex = 5
         Me.GroupControlMain.Text = "设置安全等级"
         '
@@ -1314,6 +1317,9 @@ Partial Class main
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Button6)
+        Me.Panel1.Controls.Add(Me.Button5)
+        Me.Panel1.Controls.Add(Me.Button4)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
@@ -1325,42 +1331,24 @@ Partial Class main
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.TextBox2)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(241, 40)
+        Me.Panel1.Location = New System.Drawing.Point(241, 25)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(475, 189)
+        Me.Panel1.Size = New System.Drawing.Size(727, 204)
         Me.Panel1.TabIndex = 4
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(376, 150)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(94, 23)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "修改所属等级"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(192, 150)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(85, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "放弃更改"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(283, 150)
+        Me.Button1.Location = New System.Drawing.Point(601, 5)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(87, 23)
+        Me.Button1.Size = New System.Drawing.Size(121, 24)
         Me.Button1.TabIndex = 10
-        Me.Button1.Text = "保存"
+        Me.Button1.Text = "添加文件"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(303, 10)
+        Me.Label5.Location = New System.Drawing.Point(373, 12)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(55, 14)
         Me.Label5.TabIndex = 9
@@ -1373,10 +1361,25 @@ Partial Class main
         Me.ListView5.Location = New System.Drawing.Point(192, 27)
         Me.ListView5.MultiSelect = False
         Me.ListView5.Name = "ListView5"
-        Me.ListView5.Size = New System.Drawing.Size(278, 112)
+        Me.ListView5.Size = New System.Drawing.Size(403, 166)
         Me.ListView5.TabIndex = 8
         Me.ListView5.UseCompatibleStateImageBehavior = False
         Me.ListView5.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader20
+        '
+        Me.ColumnHeader20.Text = "文件名"
+        Me.ColumnHeader20.Width = 73
+        '
+        'ColumnHeader21
+        '
+        Me.ColumnHeader21.Text = "所在目录"
+        Me.ColumnHeader21.Width = 120
+        '
+        'ColumnHeader22
+        '
+        Me.ColumnHeader22.Text = "所属安全等级"
+        Me.ColumnHeader22.Width = 87
         '
         'TextBox4
         '
@@ -1450,20 +1453,50 @@ Partial Class main
         '
         Me.Timer1.Enabled = True
         '
-        'ColumnHeader20
+        'Button2
         '
-        Me.ColumnHeader20.Text = "文件名"
-        Me.ColumnHeader20.Width = 73
+        Me.Button2.Location = New System.Drawing.Point(601, 35)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(121, 27)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "添加文件夹"
+        Me.Button2.UseVisualStyleBackColor = True
         '
-        'ColumnHeader21
+        'Button3
         '
-        Me.ColumnHeader21.Text = "所在目录"
-        Me.ColumnHeader21.Width = 120
+        Me.Button3.Location = New System.Drawing.Point(601, 95)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(121, 29)
+        Me.Button3.TabIndex = 12
+        Me.Button3.Text = "全部删除"
+        Me.Button3.UseVisualStyleBackColor = True
         '
-        'ColumnHeader22
+        'Button4
         '
-        Me.ColumnHeader22.Text = "所属安全等级"
-        Me.ColumnHeader22.Width = 87
+        Me.Button4.Location = New System.Drawing.Point(601, 65)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(121, 29)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "删除文件"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(601, 130)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(121, 39)
+        Me.Button5.TabIndex = 14
+        Me.Button5.Text = "保存更改"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(601, 175)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(121, 24)
+        Me.Button6.TabIndex = 15
+        Me.Button6.Text = "放弃更改"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'main
         '
@@ -1652,16 +1685,19 @@ Partial Class main
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
     Public WithEvents ColumnHeader21 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader22 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button6 As System.Windows.Forms.Button
 
 
 End Class

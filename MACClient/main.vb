@@ -367,4 +367,12 @@ Public Class main
         Dim Clog As Log = New Log
         Clog.LoadLog(LibInternet.Internet.GetAffairLog(CurrentSocket, LoginCode))
     End Sub
+
+    Private Sub BarButton_Sbj_Add_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Sbj_Add.ItemClick
+        Dim CSbjLevel As SbjLevel = New SbjLevel
+        CSbjLevel.Misson = 1
+        CSbjLevel.Form = Me
+        CSbjLevel.GroupControl = GroupControlMain
+        CSbjLevel.Load()
+    End Sub
 End Class
