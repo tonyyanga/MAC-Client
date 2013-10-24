@@ -21,7 +21,7 @@ Partial Class main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
-        Dim ListViewItem2 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem3 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.BarButtonItem_Connect_Menu = New DevExpress.XtraBars.BarButtonItem()
@@ -175,6 +175,9 @@ Partial Class main
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ColumnHeader20 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader21 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader22 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -840,7 +843,7 @@ Partial Class main
         '
         'RibbonPage_Level
         '
-        Me.RibbonPage_Level.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5, Me.RibbonPageGroup6})
+        Me.RibbonPage_Level.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5, Me.RibbonPageGroup6, Me.RibbonPageGroup10, Me.RibbonPageGroup14})
         Me.RibbonPage_Level.Name = "RibbonPage_Level"
         Me.RibbonPage_Level.Text = "多级安全"
         '
@@ -861,7 +864,7 @@ Partial Class main
         '
         'RibbonPage_Subject
         '
-        Me.RibbonPage_Subject.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup7, Me.RibbonPageGroup8, Me.RibbonPageGroup9, Me.RibbonPageGroup10, Me.RibbonPageGroup11})
+        Me.RibbonPage_Subject.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup7, Me.RibbonPageGroup8, Me.RibbonPageGroup9, Me.RibbonPageGroup11})
         Me.RibbonPage_Subject.Name = "RibbonPage_Subject"
         Me.RibbonPage_Subject.Text = "程序设置"
         '
@@ -907,7 +910,7 @@ Partial Class main
         '
         'RibbonPage1
         '
-        Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup12, Me.RibbonPageGroup13, Me.RibbonPageGroup14, Me.RibbonPageGroup15})
+        Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup12, Me.RibbonPageGroup13, Me.RibbonPageGroup15})
         Me.RibbonPage1.Name = "RibbonPage1"
         Me.RibbonPage1.Text = "文件设置"
         '
@@ -1177,7 +1180,7 @@ Partial Class main
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem2})
+        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem3})
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
         Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"
@@ -1365,7 +1368,7 @@ Partial Class main
         '
         'ListView5
         '
-        Me.ListView5.AllowDrop = True
+        Me.ListView5.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader20, Me.ColumnHeader21, Me.ColumnHeader22})
         Me.ListView5.LabelEdit = True
         Me.ListView5.Location = New System.Drawing.Point(192, 27)
         Me.ListView5.MultiSelect = False
@@ -1373,7 +1376,7 @@ Partial Class main
         Me.ListView5.Size = New System.Drawing.Size(278, 112)
         Me.ListView5.TabIndex = 8
         Me.ListView5.UseCompatibleStateImageBehavior = False
-        Me.ListView5.View = System.Windows.Forms.View.SmallIcon
+        Me.ListView5.View = System.Windows.Forms.View.Details
         '
         'TextBox4
         '
@@ -1446,6 +1449,21 @@ Partial Class main
         'Timer1
         '
         Me.Timer1.Enabled = True
+        '
+        'ColumnHeader20
+        '
+        Me.ColumnHeader20.Text = "文件名"
+        Me.ColumnHeader20.Width = 73
+        '
+        'ColumnHeader21
+        '
+        Me.ColumnHeader21.Text = "所在目录"
+        Me.ColumnHeader21.Width = 120
+        '
+        'ColumnHeader22
+        '
+        Me.ColumnHeader22.Text = "所属安全等级"
+        Me.ColumnHeader22.Width = 87
         '
         'main
         '
@@ -1641,6 +1659,9 @@ Partial Class main
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents ColumnHeader20 As System.Windows.Forms.ColumnHeader
+    Public WithEvents ColumnHeader21 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader22 As System.Windows.Forms.ColumnHeader
 
 
 End Class
