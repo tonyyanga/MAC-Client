@@ -206,5 +206,13 @@ Namespace Internet
             If Not (TCPSend(Conn, Encrypt("GET AFFAIRLOG ", Logincode))) Then Return "ERROR"
             Return (TCPListen(Conn))
         End Function
+        Public Function GetAdminLog(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET ADMINLOG ", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
+        Public Function GetAccessLog(Conn As Socket, Logincode As String) As String
+            If Not (TCPSend(Conn, Encrypt("GET AFFAIRLOG ", Logincode))) Then Return "ERROR"
+            Return (TCPListen(Conn))
+        End Function
     End Module
 End Namespace

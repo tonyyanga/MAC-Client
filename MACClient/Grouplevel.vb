@@ -13,13 +13,10 @@ Public MustInherit Class Grouplevel
     Friend Label1 As System.Windows.Forms.Label = New Label
     Friend Button2 As System.Windows.Forms.Button = New Button
     Friend Button1 As System.Windows.Forms.Button = New Button
-    Friend Button4 As System.Windows.Forms.Button = New Button
-    Friend Button5 As System.Windows.Forms.Button = New Button
-    Friend Button6 As System.Windows.Forms.Button = New Button
+    
     Friend Label5 As System.Windows.Forms.Label = New Label
     Friend Button3 As System.Windows.Forms.Button = New Button
-    Friend ColumnHeader20 As System.Windows.Forms.ColumnHeader = New Windows.Forms.ColumnHeader
-    Friend ColumnHeader21 As System.Windows.Forms.ColumnHeader = New Windows.Forms.ColumnHeader
+    
     Friend Property ID As String
     Friend Misson As Byte '1 = new;2=edit;
     Friend MustOverride Sub Load()
@@ -34,16 +31,6 @@ Public MustInherit Class Grouplevel
 
     Friend MustOverride Sub Del()
     Friend Sub init_public()
-        '
-        'ColumnHeader20
-        '
-        Me.ColumnHeader20.Text = "文件名"
-        Me.ColumnHeader20.Width = 100
-        '
-        'ColumnHeader21
-        '
-        Me.ColumnHeader21.Text = "所在目录"
-        Me.ColumnHeader21.Width = 300
         '
         Me.TextBox1.Location = New System.Drawing.Point(7, 40)
         Me.TextBox1.Multiline = True
@@ -61,8 +48,6 @@ Public MustInherit Class Grouplevel
         Me.GroupControl.Name = "groupcontrol"
         Me.GroupControl.Size = New System.Drawing.Size(976, 234)
         Me.GroupControl.TabIndex = 5
-
-        GroupControl.Tag = "MLSLevel"
         '
         'Panel1
         '

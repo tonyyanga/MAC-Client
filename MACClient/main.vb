@@ -365,8 +365,11 @@ Public Class main
 
     Private Sub BarButton_SbjReqHistory_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_SbjReqHistory.ItemClick
         Dim Clog As Log = New Log
-        Clog.LoadLog(LibInternet.Internet.GetAffairLog(CurrentSocket, LoginCode))
+        Clog.LoadLog(SbjLog_Conv(LibInternet.Internet.GetAffairLog(CurrentSocket, LoginCode)))
     End Sub
+    Private Function SbjLog_Conv(origin As String) As String
+
+    End Function
 
     Private Sub BarButton_Sbj_Add_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Sbj_Add.ItemClick
         Dim CSbjLevel As SbjLevel = New SbjLevel
@@ -375,4 +378,43 @@ Public Class main
         CSbjLevel.GroupControl = GroupControlMain
         CSbjLevel.Load()
     End Sub
+
+    Private Sub BarButton_Obj_RequestHistory_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Obj_RequestHistory.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(ObjLog_Conv(LibInternet.Internet.GetAffairLog(CurrentSocket, LoginCode)))
+    End Sub
+    Private Function ObjLog_Conv(origin As String) As String
+
+    End Function
+
+    Private Sub BarButton_Log_Login_All_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Log_Login_All.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(LibInternet.Internet.GetAdminLog(CurrentSocket, LoginCode))
+    End Sub
+
+    Private Sub BarButton_Log_Access_All_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Log_Access_All.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(LibInternet.Internet.GetAccessLog(CurrentSocket, LoginCode))
+    End Sub
+
+    Private Sub BarButton_Log_Login_Fail_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Log_Login_Fail.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(GetFailure(LibInternet.Internet.GetAdminLog(CurrentSocket, LoginCode)))
+    End Sub
+    Private Function GetFailure(origin As String) As String
+
+    End Function
+
+    Private Sub BarButton_Log_Access_Fail_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Log_Access_Fail.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(GetFailure(LibInternet.Internet.GetAccessLog(CurrentSocket, LoginCode)))
+    End Sub
+
+    Private Sub BarButton_Log_Access_Frequent_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButton_Log_Access_Frequent.ItemClick
+        Dim Clog As Log = New Log
+        Clog.LoadLog(GetFrequent(LibInternet.Internet.GetAccessLog(CurrentSocket, LoginCode)))
+    End Sub
+    Private Function GetFrequent(origin As String) As String
+
+    End Function
 End Class

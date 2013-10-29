@@ -1,27 +1,11 @@
 ﻿Imports System.Windows.Forms
 Public Class MLSLevel
-    Inherits CGroupControl
-    Friend Panel1 As System.Windows.Forms.Panel = New Panel
-    Friend ListView5 As System.Windows.Forms.ListView = New ListView
-    Friend TextBox4 As System.Windows.Forms.TextBox = New TextBox
-    Friend Label4 As System.Windows.Forms.Label = New Label
-    Friend TextBox3 As System.Windows.Forms.TextBox = New TextBox
-    Friend Label3 As System.Windows.Forms.Label = New Label
-    Friend TextBox2 As System.Windows.Forms.TextBox = New TextBox
-    Friend Label2 As System.Windows.Forms.Label = New Label
-    Friend TextBox1 As System.Windows.Forms.TextBox = New TextBox
-    Friend Label1 As System.Windows.Forms.Label = New Label
-    Friend Button2 As System.Windows.Forms.Button = New Button
-    Friend Button1 As System.Windows.Forms.Button = New Button
-    Friend Label5 As System.Windows.Forms.Label = New Label
-    Friend Button3 As System.Windows.Forms.Button = New Button
-    Friend Property ID As String
+    Inherits Grouplevel
     Private Property MLSObject As MLS.MLSCollection = New MLS.MLSCollection
-    Friend Misson As Byte '1 = new;2=edit level;3=edit group
     Friend GroupBox1 As GroupBox
     Friend RadioButton1 As RadioButton
     Friend RadioButton2 As RadioButton
-    Friend Sub Load()
+    Friend Overrides Sub Load()
         If CStr(GroupControl.Tag) <> "MLSLevel" Then
             If Misson >= 2 Then
                 Me.TextBox1.Size = New System.Drawing.Size(208, 189)
@@ -184,7 +168,7 @@ Public Class MLSLevel
             Me.Label2.Size = New System.Drawing.Size(55, 14)
             Me.Label2.TabIndex = 2
 
-            
+
             '
             'Label1
             '
@@ -236,7 +220,7 @@ Public Class MLSLevel
         End If
         GetLevelInfo()
     End Sub
-    Friend Function GetID(Name As String) As String
+    Friend Overrides Function GetID(Name As String) As String
         If MLSObject Is Nothing Then MLSObject = Internet.GetLevelDetails(Form.CurrentSocket, Form.LoginCode)
         For Each level As MLS.Level In MLSObject.Levels
             If level.Name = Name Then Return level.ID
@@ -255,7 +239,7 @@ Public Class MLSLevel
             ListView5.Items.Add("New level")
         End If
     End Sub
-    Private Sub GetLevelInfo()
+    Private Overrides Sub GetLevelInfo()
         If MLSObject Is Nothing Then MLSObject = Internet.GetLevelDetails(Form.CurrentSocket, Form.LoginCode)
         If Misson = 2 Then
             Dim ThisLevel As MLS.Level = New MLS.Level
@@ -305,7 +289,7 @@ Public Class MLSLevel
             Next
         End With
     End Sub
-    Private Sub loadlevel()
+    Private Overrides Sub loadlevel()
         Dim thislevel As MLS.Level = New MLS.Level, thisgroup As MLS.LevelGroup
         Dim i As Integer
         Dim group As ListViewGroupCollection
@@ -349,10 +333,10 @@ Public Class MLSLevel
         End With
     End Sub
 
-    Private Sub Save()
+    Private Overrides Sub Save()
 
     End Sub
-    Private Sub Del()
+    Private Overrides Sub Del()
 
     End Sub
 End Class

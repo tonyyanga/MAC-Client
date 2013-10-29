@@ -21,7 +21,7 @@ Partial Class main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(main))
-        Dim ListViewItem7 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
+        Dim ListViewItem8 As System.Windows.Forms.ListViewItem = New System.Windows.Forms.ListViewItem("")
         Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.ApplicationMenu1 = New DevExpress.XtraBars.Ribbon.ApplicationMenu(Me.components)
         Me.BarButtonItem_Connect_Menu = New DevExpress.XtraBars.BarButtonItem()
@@ -58,7 +58,6 @@ Partial Class main
         Me.BarButton_Sbj_SignProfileImport = New DevExpress.XtraBars.BarButtonItem()
         Me.BarList_Sbj_SignProfileApply = New DevExpress.XtraBars.BarListItem()
         Me.BarButton_ObjEdit = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButton_ObjRequest = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Obj_Default = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Obj_RequestHistory = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Obj_Export = New DevExpress.XtraBars.BarButtonItem()
@@ -84,7 +83,6 @@ Partial Class main
         Me.BarButton_Admin_pwd = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Log_Login_All = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Log_Login_Fail = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButton_Log_Manage = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Log_Access_All = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Log_Access_Fail = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButton_Log_Access_Frequent = New DevExpress.XtraBars.BarButtonItem()
@@ -161,6 +159,11 @@ Partial Class main
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.ListView5 = New System.Windows.Forms.ListView()
@@ -176,11 +179,6 @@ Partial Class main
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemMemoEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -206,7 +204,7 @@ Partial Class main
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.Dock = System.Windows.Forms.DockStyle.None
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButton_Disconnect, Me.BarButton_Conn_SaveConn, Me.BarButton_Service_Start, Me.BarButton_Service_Pause, Me.BarButton_Service_Stop, Me.BarButton_Service_Disable, Me.BarButton_Service_Status, Me.BarButton_Affairs, Me.BarList_Conn_ManageProfiles, Me.BarButton_Settings, Me.BarButton_About, Me.BarButton_Help, Me.BarButton_BLP_NewLevel, Me.BarList_BLP_EditLevel, Me.BarList_BLP_Strategies, Me.BarButton_BLP_ObjPromotion, Me.BarButton_BLP_SbjPromotion, Me.BarButton_SbjReqHistory, Me.BarButton_Sbj_Add, Me.BarList_SbjEdit, Me.BarButton_Sbj_Default, Me.BarButton_Sbj_ProfileExport, Me.BarButton_Sbj_ProfileImport, Me.BarList_Sbj_ProfileApply, Me.BarButton_Sbj_PromotionLimit, Me.BarButton_Sbj_PromotionHistory, Me.BarButton_Sbj_SignImport, Me.BarButton_Sbj_SignManage, Me.BarList_SbjRequest, Me.BarButton_Sbj_SignExport, Me.BarButton_Sbj_SignProfileImport, Me.BarList_Sbj_SignProfileApply, Me.BarButton_ObjEdit, Me.BarButton_ObjRequest, Me.BarButton_Obj_Default, Me.BarButton_Obj_RequestHistory, Me.BarButton_Obj_Export, Me.BarButton_Obj_Import, Me.BarList_Obj_Apply, Me.BarButton_Obj_PromoteHistory, Me.BarButton_Obj_PromoteException, Me.BarButton_Encrypt_Enable, Me.BarButton_Encrypt_Setting, Me.BarButton_Encrypt_Key, Me.BarButton_Network_OutList, Me.BarButton_Network_InList, Me.BarButton_Network_Program, Me.BarButton_Domain_Enable, Me.BarButton_Domain_MLSMode, Me.BarButton_Network_InternetLevel, Me.BarButton_Domain_Server, Me.BarButton_Domain_Restrict, Me.BarButton_Local_AddAccount, Me.BarButton_Domain_ServerLogin, Me.BarButton_Local_AccountManagement, Me.BarButton_Admin_Manage, Me.BarButton_Admin_pwd, Me.BarButton_Log_Login_All, Me.BarButton_Log_Login_Fail, Me.BarButton_Log_Manage, Me.BarButton_Log_Access_All, Me.BarButton_Log_Access_Fail, Me.BarButton_Log_Access_Frequent, Me.BarStaticItem_Status, Me.BarStaticItem_Time, Me.BarButtonItem_Connect_Menu, Me.BarList_Connect})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButton_Disconnect, Me.BarButton_Conn_SaveConn, Me.BarButton_Service_Start, Me.BarButton_Service_Pause, Me.BarButton_Service_Stop, Me.BarButton_Service_Disable, Me.BarButton_Service_Status, Me.BarButton_Affairs, Me.BarList_Conn_ManageProfiles, Me.BarButton_Settings, Me.BarButton_About, Me.BarButton_Help, Me.BarButton_BLP_NewLevel, Me.BarList_BLP_EditLevel, Me.BarList_BLP_Strategies, Me.BarButton_BLP_ObjPromotion, Me.BarButton_BLP_SbjPromotion, Me.BarButton_SbjReqHistory, Me.BarButton_Sbj_Add, Me.BarList_SbjEdit, Me.BarButton_Sbj_Default, Me.BarButton_Sbj_ProfileExport, Me.BarButton_Sbj_ProfileImport, Me.BarList_Sbj_ProfileApply, Me.BarButton_Sbj_PromotionLimit, Me.BarButton_Sbj_PromotionHistory, Me.BarButton_Sbj_SignImport, Me.BarButton_Sbj_SignManage, Me.BarList_SbjRequest, Me.BarButton_Sbj_SignExport, Me.BarButton_Sbj_SignProfileImport, Me.BarList_Sbj_SignProfileApply, Me.BarButton_ObjEdit, Me.BarButton_Obj_Default, Me.BarButton_Obj_RequestHistory, Me.BarButton_Obj_Export, Me.BarButton_Obj_Import, Me.BarList_Obj_Apply, Me.BarButton_Obj_PromoteHistory, Me.BarButton_Obj_PromoteException, Me.BarButton_Encrypt_Enable, Me.BarButton_Encrypt_Setting, Me.BarButton_Encrypt_Key, Me.BarButton_Network_OutList, Me.BarButton_Network_InList, Me.BarButton_Network_Program, Me.BarButton_Domain_Enable, Me.BarButton_Domain_MLSMode, Me.BarButton_Network_InternetLevel, Me.BarButton_Domain_Server, Me.BarButton_Domain_Restrict, Me.BarButton_Local_AddAccount, Me.BarButton_Domain_ServerLogin, Me.BarButton_Local_AccountManagement, Me.BarButton_Admin_Manage, Me.BarButton_Admin_pwd, Me.BarButton_Log_Login_All, Me.BarButton_Log_Login_Fail, Me.BarButton_Log_Access_All, Me.BarButton_Log_Access_Fail, Me.BarButton_Log_Access_Frequent, Me.BarStaticItem_Status, Me.BarStaticItem_Time, Me.BarButtonItem_Connect_Menu, Me.BarList_Connect})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
         Me.RibbonControl.MaxItemId = 98
         Me.RibbonControl.Name = "RibbonControl"
@@ -532,15 +530,6 @@ Partial Class main
         Me.BarButton_ObjEdit.Name = "BarButton_ObjEdit"
         Me.BarButton_ObjEdit.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
         '
-        'BarButton_ObjRequest
-        '
-        Me.BarButton_ObjRequest.Caption = "审计请求"
-        Me.BarButton_ObjRequest.Enabled = False
-        Me.BarButton_ObjRequest.Glyph = CType(resources.GetObject("BarButton_ObjRequest.Glyph"), System.Drawing.Image)
-        Me.BarButton_ObjRequest.Id = 56
-        Me.BarButton_ObjRequest.Name = "BarButton_ObjRequest"
-        Me.BarButton_ObjRequest.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
-        '
         'BarButton_Obj_Default
         '
         Me.BarButton_Obj_Default.Caption = "默认设置"
@@ -749,14 +738,6 @@ Partial Class main
         Me.BarButton_Log_Login_Fail.Name = "BarButton_Log_Login_Fail"
         Me.BarButton_Log_Login_Fail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
         '
-        'BarButton_Log_Manage
-        '
-        Me.BarButton_Log_Manage.Caption = "管理账户日志"
-        Me.BarButton_Log_Manage.Enabled = False
-        Me.BarButton_Log_Manage.Id = 85
-        Me.BarButton_Log_Manage.Name = "BarButton_Log_Manage"
-        Me.BarButton_Log_Manage.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
-        '
         'BarButton_Log_Access_All
         '
         Me.BarButton_Log_Access_All.Caption = "全部访问日志"
@@ -927,7 +908,6 @@ Partial Class main
         'RibbonPageGroup12
         '
         Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButton_ObjEdit)
-        Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButton_ObjRequest)
         Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButton_Obj_Default)
         Me.RibbonPageGroup12.ItemLinks.Add(Me.BarButton_Obj_RequestHistory)
         Me.RibbonPageGroup12.Name = "RibbonPageGroup12"
@@ -1009,7 +989,6 @@ Partial Class main
         '
         Me.RibbonPageGroup21.ItemLinks.Add(Me.BarButton_Log_Login_All)
         Me.RibbonPageGroup21.ItemLinks.Add(Me.BarButton_Log_Login_Fail)
-        Me.RibbonPageGroup21.ItemLinks.Add(Me.BarButton_Log_Manage)
         Me.RibbonPageGroup21.Name = "RibbonPageGroup21"
         Me.RibbonPageGroup21.Text = "账户日志"
         '
@@ -1183,7 +1162,7 @@ Partial Class main
         Me.ListView3.GridLines = True
         Me.ListView3.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
         Me.ListView3.HideSelection = False
-        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem7})
+        Me.ListView3.Items.AddRange(New System.Windows.Forms.ListViewItem() {ListViewItem8})
         Me.ListView3.Location = New System.Drawing.Point(3, 3)
         Me.ListView3.MultiSelect = False
         Me.ListView3.Name = "ListView3"
@@ -1336,6 +1315,51 @@ Partial Class main
         Me.Panel1.Size = New System.Drawing.Size(727, 204)
         Me.Panel1.TabIndex = 4
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(601, 175)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(121, 24)
+        Me.Button6.TabIndex = 15
+        Me.Button6.Text = "放弃更改"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(601, 130)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(121, 39)
+        Me.Button5.TabIndex = 14
+        Me.Button5.Text = "保存更改"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(601, 65)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(121, 29)
+        Me.Button4.TabIndex = 13
+        Me.Button4.Text = "删除文件"
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(601, 95)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(121, 29)
+        Me.Button3.TabIndex = 12
+        Me.Button3.Text = "全部删除"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(601, 35)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(121, 27)
+        Me.Button2.TabIndex = 11
+        Me.Button2.Text = "添加文件夹"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(601, 5)
@@ -1453,51 +1477,6 @@ Partial Class main
         '
         Me.Timer1.Enabled = True
         '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(601, 35)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(121, 27)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "添加文件夹"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(601, 95)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(121, 29)
-        Me.Button3.TabIndex = 12
-        Me.Button3.Text = "全部删除"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(601, 65)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(121, 29)
-        Me.Button4.TabIndex = 13
-        Me.Button4.Text = "删除文件"
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(601, 130)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(121, 39)
-        Me.Button5.TabIndex = 14
-        Me.Button5.Text = "保存更改"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(601, 175)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(121, 24)
-        Me.Button6.TabIndex = 15
-        Me.Button6.Text = "放弃更改"
-        Me.Button6.UseVisualStyleBackColor = True
-        '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 14.0!)
@@ -1594,7 +1573,6 @@ Partial Class main
     Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarList_SbjRequest As DevExpress.XtraBars.BarListItem
     Friend WithEvents BarButton_ObjEdit As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents BarButton_ObjRequest As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButton_Obj_Default As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPageGroup12 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
@@ -1654,7 +1632,6 @@ Partial Class main
     Friend WithEvents ListView4 As System.Windows.Forms.ListView
     Friend WithEvents GroupControlMain As DevExpress.XtraEditors.GroupControl
     Friend WithEvents BarList_Connect As DevExpress.XtraBars.BarListItem
-    Friend WithEvents BarButton_Log_Manage As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ColumnHeader9 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
